@@ -1,0 +1,98 @@
+
+
+<mat-toolbar class="toolbar">
+  <mat-icon> filter_vintage </mat-icon>
+  <span style="margin-left: 1%"><b> Dairy Farm </b></span>
+  <span class="example-spacer"></span>
+ 
+
+  <mat-icon> local_florist </mat-icon>
+  <span class="profile_name dropdown-toggle">Customers</span>
+  <!-- <button mat-stroked-button class="toolbar_btn">
+      Sign-Out
+      </button> -->
+</mat-toolbar>
+
+<div class="maindiv">
+  <div class="container">
+    <div class="header">
+      <div class="mat-mdc-form-field" style="margin-top: 1%">
+        <input
+          matInput
+          (keyup)="applyFilter($event)"
+          placeholder="Ex. ium"
+          #input
+        />
+      </div>
+    </div>
+
+    <div>
+      <div class="patient_info">
+        <b> Client List : </b>
+      </div>
+
+      <div class="mat-elevation-z8 table_div">
+        <div class="table-responsive">
+          <table mat-table [dataSource]="dataSource" class="tablecss">
+            <!-- Position Column -->
+            <ng-container matColumnDef="position">
+              <th mat-header-cell *matHeaderCellDef>No.</th>
+              <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef>Full Name</th>
+              <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="weight">
+              <th mat-header-cell *matHeaderCellDef>Contact No.</th>
+              <td mat-cell *matCellDef="let element">{{ element.contact }}</td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="symbol">
+              <th mat-header-cell *matHeaderCellDef>Address</th>
+              <td mat-cell *matCellDef="let element">{{ element.address }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="history">
+              <th mat-header-cell *matHeaderCellDef>History</th>
+              <td mat-cell *matCellDef="let element">{{ element.history }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef>Actions</th>
+              <td mat-cell *matCellDef="let element">
+                <button
+                  class="btnn"
+                  mat-raised-button
+                  color="primary"
+                  (click)="openDialog()"
+                >
+                  Edit
+                </button>
+                <button mat-raised-button color="warn" (click)="deleteDialog()">
+                  Delete
+                </button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+        </div>
+
+        <mat-paginator
+          [pageSizeOptions]="[5, 10, 20]"
+          showFirstLastButtons
+          aria-label="Select page of periodic elements"
+          class="tablecss"
+        >
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>

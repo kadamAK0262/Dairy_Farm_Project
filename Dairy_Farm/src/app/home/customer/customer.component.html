@@ -1,0 +1,411 @@
+<body>
+  <mat-toolbar class="toolbar">
+    <mat-icon> filter_vintage </mat-icon>
+  <span style="margin-left: 1%;"><b> Dairy Farm </b></span>
+  <span class="example-spacer"></span>
+    <mat-icon> local_florist </mat-icon>
+  <span class="profile_name dropdown-toggle">Customer Form</span>
+</mat-toolbar>
+
+
+<div class="mainForm">
+  <h1>Customer Information Form</h1>
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <mat-form-field>
+      <mat-label>Customer Name</mat-label>
+      <input matInput formControlName="customerName">
+      <mat-error *ngIf="hasError('customerName', 'required')">Customer Name is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Contact No</mat-label>
+      <input matInput formControlName="contactNo">
+      <mat-error *ngIf="hasError('contactNo', 'required')">Contact No is required</mat-error>
+      <mat-error *ngIf="hasError('contactNo', 'pattern')">Invalid Contact No</mat-error>
+    </mat-form-field>
+  </div>
+
+<div class="row">
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="emailId">
+    <mat-error *ngIf="hasError('emailId', 'required')">Customer Email is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Address </mat-label>
+    <input matInput formControlName="address">
+    <mat-error *ngIf="hasError('address', 'required')">Customer Address is required</mat-error> 
+  </mat-form-field>
+</div>
+
+<div class="row">
+  <mat-form-field>
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="checkDate">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngIf="hasError('checkDate', 'required')">Date is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Rate</mat-label>
+    <input matInput formControlName="rate">
+    <mat-error *ngIf="hasError('rate', 'required')">Rate is required</mat-error>
+  </mat-form-field>
+</div>
+
+<div class="row">
+  <mat-form-field>
+    <mat-label>Quantity</mat-label>
+    <input matInput formControlName="quantity">
+    <mat-error *ngIf="hasError('quantity', 'required')">Quantity is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Bill </mat-label>
+    <input matInput formControlName="bill">
+  </mat-form-field>
+</div>
+
+<div class="row">
+<mat-form-field>
+  <mat-label>Id of Society</mat-label>
+  <input matInput formControlName="idOfSociety">
+  <mat-error *ngIf="hasError('idOfSociety', 'required')">idOfSociety is required</mat-error>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Milk Type</mat-label>
+  <mat-select matInput formControlName="milkType">
+    <mat-option value="cow">cow</mat-option>
+    <mat-option value="buffalo">buffalo</mat-option>
+  </mat-select>
+</mat-form-field>
+</div>
+
+<div class="row">
+<mat-form-field>
+  <mat-label>Delivered</mat-label>
+  <mat-select matInput formControlName="delivered">
+    <mat-option value="Yes">Yes</mat-option>
+    <mat-option value="No">No</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>outstandingBill</mat-label>
+  <input matInput formControlName="outStandingBill">
+</mat-form-field>
+</div>  
+
+<button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          
+        >
+          Submit
+        </button>
+      </form>
+</div>
+
+      <div *ngIf="success">
+        <p>Form submitted successfully!</p>
+      </div>
+      <div *ngIf="!success && submitted">
+        <p>Form submission failed. Please check the details and try again.</p>
+      </div>
+
+</body>
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Customer Information Form</title>
+    
+  </head>
+  <body>
+    <div class="container">
+      <h1>Customer Information Form</h1>
+      <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+        <label for="costumerName">Customer Name:</label>
+        <input type="text" id="costumerName" formControlName="costumerName" [(ngModel)]="customer.customerName"  />
+        <div
+          *ngIf="
+            customerForm.get('costumerName')?.hasError('required') &&
+            customerForm.get('costumerName')?.touched
+          "
+        >
+          Customer Name is required.
+        </div>
+
+        <label for="delivered">Delivered:</label>
+        <input type="text" id="delivered" formControlName="delivered" [(ngModel)]="customer.delivered"  />
+        <div
+          *ngIf="
+            customerForm.get('delivered')?.hasError('required') &&
+            customerForm.get('delivered')?.touched
+          "
+        >
+        delivered is required.
+        </div>
+
+        <label for="Date">Date:</label>
+        <input type="text" id="Date" formControlName="Date" [(ngModel)]="customer.checkDate"  />
+        <div
+          *ngIf="
+            customerForm.get('date')?.hasError('required') &&
+            customerForm.get('date')?.touched
+          "
+        >
+          Date is required.
+        </div>
+
+        <label for="contactNo">Customer contact no:</label>
+        <input type="text" id="contactNo" formControlName="contactNo" [(ngModel)]="customer.contactNo"  />
+        <div
+          *ngIf="
+            customerForm.get('contactNo')?.hasError('required') &&
+            customerForm.get('contactNo')?.touched
+          "
+        >
+          Customer No is required.
+        </div>
+
+        <label for="email">Contact email:</label>
+        <input type="text" id="email" formControlName="email" [(ngModel)]="customer.emailId"/>
+        <div
+          *ngIf="
+            customerForm.get('email')?.hasError('required') &&
+            customerForm.get('email')?.touched
+          "
+        >
+        email is required
+        </div>
+        <label for="rate">rate:</label>
+        <input type="text" id="rate" formControlName="rate" [(ngModel)]="customer.rate"/>
+        <div
+          *ngIf="
+            customerForm.get('rate')?.hasError('required') &&
+            customerForm.get('rate')?.touched
+          "
+        >
+         Rate is required.
+        </div>
+        
+
+        <label for="idOfSociety">id OF Society</label>
+        <input type="text" id="idOfSociety" formControlName="idOfSociety" [(ngModel)]="customer.idOfSociety"/>
+        <div
+          *ngIf="
+            customerForm.get('idOfSociety')?.hasError('required') &&
+            customerForm.get('idOfSociety')?.touched
+          "
+        >
+          Invalid  societyId format.
+        </div>
+
+        <label for="bill">Bill:</label>
+        <input type="text" id="bill" formControlName="bill" [(ngModel)]="customer.bill"/>
+       <div
+          *ngIf="
+            customerForm.get('bill')?.hasError('required') &&
+            customerForm.get('bill')?.touched
+          "
+        >
+          Invalid email address format.
+        </div>
+
+        <label for="address">Address:</label>
+        <textarea
+          id="address"
+          formControlName="address"
+          rows="4"
+          cols="50"
+          [(ngModel)]="customer.address"
+        ></textarea>
+        <div
+          *ngIf="
+            customerForm.get('address')?.hasError('address') &&
+            customerForm.get('address')?.touched
+          "
+        >
+          Invalid address format.
+        </div>
+
+        <label for="milkType">Milk Type:</label>
+        <select id="milkType" formControlName="milkType" [(ngModel)]="customer.milkType">
+          <option value="Regular">Cow</option>
+          <option value="Skimmed">buffalo</option>
+          
+        </select>
+        <div
+          *ngIf="
+            customerForm.get('milkType')?.hasError('required') &&
+            customerForm.get('milkType')?.touched
+          "
+        >
+          milkType is required.
+        </div>
+
+        <label for="quantity">Quantity (liters):</label>
+        <input type="text" id="quantity" formControlName="quantity" [(ngModel)]="customer.quantity"/>
+        <div
+          *ngIf="
+            customerForm.get('quantity')?.hasError('required') &&
+            customerForm.get('quantity')?.touched
+          "
+        >
+          Quantity is required.
+        </div>
+
+        <label for="outStandingBill">out standing bill</label>
+        <input type="text" id="outStandingBill" formControlName="outStandingBill" [(ngModel)]="customer.outStandingBill"/>
+
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit" 
+         
+        >
+          Submit
+        </button>
+      </form>
+
+      <div *ngIf="success">
+        <p>Form submitted successfully!</p>
+      </div>
+      <div *ngIf="!success && submitted">
+        <p>Form submission failed. Please check the details and try again.</p>
+      </div>
+    </div>
+  </body>
+</html> -->
+
+
+
+
+<!-- 
+  
+  <body>
+
+    <div class="container">
+      <h1>Customer Information Form</h1>
+      <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+        <label for="costumerName">Customer Name:</label>
+        <input type="text" id="costumerName" formControlName="costumerName" [(ngModel)]="customer.customerName"  />
+        <div *ngIf="hasError('customerName', 'required')">
+          <p class="error-message">Customer Name is required</p>
+        </div>
+        
+
+        <label for="costumerName">Delivered:</label>
+        <input type="text" id="costumerAddress" formControlName="costumerAddress" [(ngModel)]="customer.delivered"  />
+        <div *ngIf="hasError('delivered', 'delivered')">
+          <p class="error-message">Invalid Delivered</p>
+        </div>
+        
+
+      
+        <div class="form-group">
+          <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="costumerName">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            
+            <div *ngIf="hasError('checkDate', 'required')" class="error-message">Date is required</div>
+          </mat-form-field>
+        </div>
+        
+
+        <label for="costumerName"> Contact no:</label>
+        <input type="text" id="costumerName" formControlName="costumerName" [(ngModel)]="customer.contactNo"  />
+        <div *ngIf="hasError('contactNo', 'required')">
+          <p class="error-message">Contact Number is required</p>
+        </div>
+        <div *ngIf="hasError('contactNo', 'pattern')">
+          <p class="error-message">Invalid Contact Number</p>
+        </div>
+        
+
+        <label for="contactNo">Contact email:</label>
+        <input type="text" id="contactNo" formControlName="contactNo" [(ngModel)]="customer.emailId"/>
+        <div *ngIf="hasError('emailId', 'email')">
+          <p class="error-message">Invalid Email Address</p>
+        </div>
+        
+        <label for="contactNo">rate:</label>
+        <input type="text" id="contactNo" formControlName="contactNo" [(ngModel)]="customer.rate"/>
+        <div *ngIf="hasError('rate', 'required')" class="error-message">Rate is required</div>
+      
+
+        <label for="emailId">id OF Society</label>
+        <input type="text" id="emailId" formControlName="emailId" [(ngModel)]="customer.idOfSociety"/>
+        <div *ngIf="hasError('idOfSociety', 'required')" class="error-message">Society Id is required</div>
+        
+        <label for="emailId">Bill:</label>
+        <input type="text" id="emailId" formControlName="emailId" [(ngModel)]="customer.bill"/>
+        
+       
+
+        <label for="address">Address:</label>
+        <textarea
+          id="address"
+          formControlName="address"
+          rows="4"
+          cols="50"
+          [(ngModel)]="customer.address"
+        ></textarea>
+        <div *ngIf="hasError('address', 'required')" class="error-message">Address is required</div>
+      
+
+        <label for="milkType">Milk Type:</label>
+        <select id="milkType" formControlName="milkType" [(ngModel)]="customer.milkType">
+          <option value="Regular">Cow</option>
+          <option value="Skimmed">buffalo</option>
+          
+        </select>
+        <div *ngIf="hasError('milkType', 'required')" class="error-message">Milk Type is required</div>
+      
+
+        <label for="quantity">Quantity (liters):</label>
+        <input type="text" id="quantity" formControlName="quantity" [(ngModel)]="customer.quantity"/>
+        <div *ngIf="hasError('quantity', 'required')" class="error-message">Quantity is required</div>
+      
+
+        <label for="emailId">out standing bill</label>
+        <input type="text" id="emailId" formControlName="emailId" [(ngModel)]="customer.outStandingBill"/>
+        <div *ngIf="hasError('outStandingBill', 'required')" class="error-message">Outstanding Bill is required</div>
+      
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="customerForm.invalid"
+         
+        >
+          Submit
+        </button>
+      </form>
+
+      <div *ngIf="success">
+        <p>Form submitted successfully!</p>
+      </div>
+      <div *ngIf="!success && submitted">
+        <p>Form submission failed. Please check the details and try again.</p>
+      </div>
+    </div>
+  </body>
+ -->

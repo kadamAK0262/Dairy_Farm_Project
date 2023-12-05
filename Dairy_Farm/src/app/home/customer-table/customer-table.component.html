@@ -1,0 +1,155 @@
+<body>
+<mat-toolbar class="toolbar">
+  <mat-icon> filter_vintage </mat-icon>
+<span style="margin-left: 1%;"><b> Dairy Farm </b></span>
+<span class="example-spacer"></span>
+
+  <mat-icon> local_florist </mat-icon>
+<span class="profile_name dropdown-toggle">Daily Data</span>
+</mat-toolbar>
+
+  
+
+  <div>
+  <mat-dialog-content style="overflow: hidden">
+    <table mat-table [dataSource]="customerList" class="mat-elevation-z8">
+     
+      <ng-container matColumnDef="id" class="table-row">
+        <th mat-header-cell *matHeaderCellDef>Customer Id</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="address" class="table-row">
+        <th mat-header-cell *matHeaderCellDef>address</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.address }}
+        </td>
+      </ng-container>
+  
+      <!-- Dosage -->
+      <ng-container matColumnDef="bill" class="table-row">
+        <th mat-header-cell *matHeaderCellDef>bill</th>
+        <td mat-cell *matCellDef="let element">{{ element.bill }}</td>
+      </ng-container>
+  
+      <!-- Notes -->
+      <ng-container matColumnDef="checkDate" class="table-row">
+        <th mat-header-cell *matHeaderCellDef>checkDate</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.checkDate }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="contactNo" class="table-row">
+        <th mat-header-cell *matHeaderCellDef>contactNo</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.contactNo }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="customerName" class="table-row">
+        <th mat-header-cell *matHeaderCellDef>customerName</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.customerName }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="delivered" class="table-row">
+        <th mat-header-cell *matHeaderCellDef>delivered</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.delivered }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="emailId" class="table-row">
+        <th mat-header-cell *matHeaderCellDef>emailId</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.emailId }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="idOfSociety" class="table-row">
+        <th mat-header-cell *matHeaderCellDef>idOfSociety</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.idOfSociety }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="milkType" class="table-row">
+        <th mat-header-cell *matHeaderCellDef>milkType</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.milkType }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="outStandingBill" class="table-row">
+        <th mat-header-cell *matHeaderCellDef>outStandingBill</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.outStandingBill }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="quantity" class="table-row">
+        <th mat-header-cell *matHeaderCellDef>quantity</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.quantity }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="updatedStatus" class="table-row">
+        <th mat-header-cell *matHeaderCellDef>Updated Status</th>
+        <td mat-cell *matCellDef="let element">
+          
+          <div *ngIf="element.updatedStatus ">
+          <mat-icon style="color: green;">check_circle_outline</mat-icon>
+        </div>
+        <div *ngIf="!element.updatedStatus "><mat-icon style="color: red;">highlight_off</mat-icon></div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="rate" class="table-row">
+        <th mat-header-cell *matHeaderCellDef>rate</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.rate }}
+        </td>
+      </ng-container>
+      
+     
+      
+        <!-- Action -->
+    <ng-container matColumnDef="action" class="table-row">
+      <th mat-header-cell *matHeaderCellDef class="thead">Action</th>
+      <td mat-cell *matCellDef="let element" class="btn-table-row">
+        <button
+          mat-stroked-button
+          color="primary"
+          class="btn1"
+          (click)="editDailyCustomer(element.id,element.checkDate)"
+          (click)="addToCustomerList(element)"
+        >
+          Edit
+        </button>
+        <button
+          mat-stroked-button
+          color="primary"
+          class="btn2"
+          (click)="getCustomrId(element.id)"
+  
+        >
+         History
+          
+        </button>
+      </td>
+    </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+        class="table-row"
+      ></tr>
+      
+    </table>
+  </mat-dialog-content>
+ </div>
+
+</body>
+
+
+
+ 

@@ -1,0 +1,92 @@
+body {
+  margin: 0; /* Reset default margin */
+  padding: 0; /* Reset default padding */
+  background-image: url('https://media.istockphoto.com/id/1297006637/photo/young-man-standing-stroking-cow.jpg?s=612x612&w=0&k=20&c=gPQDGZuJhUyEm84zEY1uOBIvfekxbM8aPYvQQTcbf2Q=');
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+  background-position: center; 
+  /* background-attachment: fixed; */
+  background-repeat: repeat-y;
+}
+  
+  
+  .example-header-image {
+    background-image: url('https://cdn.vectorstock.com/i/preview-1x/67/12/united-dairy-farm-logo-design-template-vector-47416712.jpg');
+    background-size: cover;
+    width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  
+  }
+  
+  /* .mat-card-image{
+    width: 80%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+
+  } */
+
+  .example-card{
+    /* width: 400%;
+    height: 100px;
+    margin-left: 10%;
+    margin-right: auto;
+    display: flex;
+  max-width: 300px;
+  flex-direction: column; 
+  align-items: normal;
+  box-sizing: border-box;
+  justify-content: space-between; */
+
+
+  
+  margin-right: 30px; margin-top: 10px; width: 230px ;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  display: flex;
+
+  
+  flex-direction: column;
+  }
+
+  .rowone {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+
+  .all{
+    justify-content: center;
+  }
+  
+  /* Media Queries */
+  /* @media only screen and (max-width: 768px) {
+    .example-card {
+      margin-right: 15px;
+      margin-left: 15px;
+    }
+} */
+
+
+@media only screen and (max-width: 768px) and (max-width>= 390px) and (min-width: 519px){
+  .rowone {
+    flex-direction: column; /* Stack cards in a single column */
+    margin-bottom: -10px;
+  }
+  .example-card {
+    max-width: 100%; /* Adjust card width */
+    margin: 10px auto;
+    padding: 30px; /* Add padding for better spacing */
+    box-sizing: border-box;
+    
+  }
+
+  body {
+    background-size: cover; /* Adjust background size */
+    background-position: center;
+    /* background-repeat: repeat-x; */
+    background-repeat: repeat-y;
+    
+}
+}

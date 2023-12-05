@@ -1,0 +1,250 @@
+/* customer-list.component.css */
+
+/* customer-list.component.css */
+
+body {
+  background-color: #97f4ed; /* Light background color */
+  
+  /* background-image: url("https://static.vecteezy.com/system/resources/previews/000/368/678/original/two-cows-in-the-farm-vector.jpg"); */
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+  background-position: center; 
+  /* background-attachment: fixed; */
+  background-repeat: repeat-y;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+h1{
+  font-size: 3em;
+  color: #493cff;
+  font-style:initial ;
+  font-weight: 800;
+}
+
+.mainsales {
+  text-align: center;
+  padding: 20px;
+}
+
+.contain_of_button {
+  margin-top: 20px;
+}
+
+.animals {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* button {
+  padding: 15px 25px; 
+  margin: 10px;
+  background-color: #190fd7;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+} */
+button {
+  width: 20%;
+  padding: 15px 25px; /* Larger button size */
+  margin: 10px;
+  background-color: #5b53ef;
+  color: #fff;
+  border: none;
+  border-radius: 10px; /* Curved edges */
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adding a subtle box shadow for depth */
+}
+
+/* Hover effect - change background color and add a slight scale effect */
+button:hover {
+  background-color: #0c0758;
+  transform: scale(1.05);
+}
+
+/* 
+button:hover {
+  background-color: #4a5f85; 
+} */
+
+button.clicked {
+  background-color: #4caf50;
+}
+
+.container {
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+h2 {
+  color: #1557f2;
+  font-weight: 500;
+  font-size: 2rm;
+}
+
+/* Style the table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: #d7e0e1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style table headers */
+th {
+  background-color: #4881be;
+  color: #fff;
+  padding: 12px;
+  text-align: left;
+}
+
+/* Style table cells */
+td {
+  padding: 12px;
+  border-bottom: 1px solid #5e4343;
+}
+
+/* Add hover effect on rows */
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+
+
+
+
+
+/* Css for toolbar */
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.example-container {
+  width: 100vw;
+  height: 100vh;
+
+}
+
+.profile_name {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 10px;
+  color: black;
+}
+
+.profile {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: left;
+}
+
+mat-drawer-content {
+  padding: 12px;
+  width: 100vw;
+}
+
+.toolbar_btn {
+  border: 1px solid white !important;
+}
+
+.toolbar{
+  color: rgb(9, 8, 8);
+  background-color: #1b95ed;
+  height:10vh;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .profile_name {
+      font-size: 12px;
+  }
+}
+
+
+
+
+/* customer-list.component.css */
+
+/* Existing styles remain unchanged */
+
+/* Style the table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+/* Style table headers */
+th {
+  background-color: #5b53ef; /* Header background color */
+  color: #fff;
+  padding: 15px; /* Increased padding for headers */
+  text-align: left;
+  border-bottom: 2px solid #fff; /* White border between header and rows */
+}
+
+/* Style table cells */
+td {
+  padding: 15px;
+  border-bottom: 1px solid #ddd; /* Light gray border between rows */
+}
+
+/* Add hover effect on rows */
+tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Style alternate rows for better readability */
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Add a subtle border-radius to the first and last row for a rounded appearance */
+tbody tr:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+tbody tr:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* Customize the header cells individually if needed */
+th:first-child {
+  border-top-left-radius: 8px;
+}
+
+th:last-child {
+  border-top-right-radius: 8px;
+}
+
+/* Additional styling for the quarterly table */
+.container:nth-child(2) table {
+  background-color: #d7e0e1; /* Background color for the quarterly table */
+}
+
+.container:nth-child(2) th {
+  background-color: #4881be; /* Header background color for the quarterly table */
+  color: #fff;
+}
+
+.container:nth-child(2) tbody tr:nth-child(even) {
+  background-color: #e1eaf0; /* Alternate row color for the quarterly table */
+}

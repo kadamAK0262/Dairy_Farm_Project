@@ -1,0 +1,93 @@
+/* Add your global styles here */
+
+body{
+    background-color: #9cfafa;
+}
+
+.table-container {
+    margin: 20px;
+  }
+  
+  .mat-elevation-z8 {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mat-header-cell,
+  .mat-cell {
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .mat-header-row {
+    background-color: #3f51b5 !important; /* Header background color */
+    color: white !important; /* Header text color */
+  }
+  
+  .mat-cell {
+    background-color: #f5f5f5 !important; /* Data cell background color */
+  }
+  
+  .mat-row {
+    transition: background-color 0.3s;
+  }
+  
+  .mat-row:hover {
+    background-color: #f0f0f0;
+  }
+  
+
+  
+  /* Add more styles as needed */
+  
+
+/* ***************************** */
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.example-container {
+    width: 100vw;
+    height: 100vh;
+
+}
+
+.profile_name {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 10px;
+    color: black;
+}
+
+.profile {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: left;
+}
+
+mat-drawer-content {
+    padding: 12px;
+    width: 100vw;
+}
+
+.toolbar_btn {
+    border: 1px solid white !important;
+}
+
+.toolbar{
+    color: rgb(9, 8, 8);
+    background-color: #1b95ed;
+    height:10vh;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .profile_name {
+        font-size: 12px;
+    }
+}

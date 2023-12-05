@@ -1,0 +1,116 @@
+<app-toolbar></app-toolbar>
+
+
+
+<body
+  style="
+    background-image: url('https://media.istockphoto.com/id/1297006637/photo/young-man-standing-stroking-cow.jpg?s=612x612&w=0&k=20&c=gPQDGZuJhUyEm84zEY1uOBIvfekxbM8aPYvQQTcbf2Q=');
+  "
+>
+  <div class="all">
+    <div class="rowone">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Home</mat-card-title>
+          <mat-card-subtitle>About home</mat-card-subtitle>
+        </mat-card-header>
+        <img
+          class="mat-card-image"
+          mat-card-image
+          src="https://img.freepik.com/free-vector/dairy-farm-label-logo-with-dairy-cow-cartoon_1308-103020.jpg?w=2000"
+          alt="Photo of a Doctor "
+        />
+
+        <mat-card-actions>
+          <button
+            mat-raised-button
+            color="primary"
+            style="margin-top: 10%; margin-left: 35%"
+            (click)="getlandingPage(  )"
+          >
+            Click
+          </button>
+        </mat-card-actions>
+      </mat-card>
+
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Reports</mat-card-title>
+          <mat-card-subtitle>Check Reports here</mat-card-subtitle>
+        </mat-card-header>
+        <img
+          mat-card-image
+          src="https://images.template.net/wp-content/uploads/2018/02/Daily-Sales-Report-Templates.jpg"
+          alt="Photo of a Doctor"
+        />
+
+        <mat-card-actions>
+          <button
+            mat-raised-button
+            color="primary"
+            style="margin-top: 10%; margin-left: 35%"
+            (click)="getReportPage()"
+          >
+            Click
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <div class="rowone">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Daily Distrubution</mat-card-title>
+          <mat-card-subtitle>To check clients</mat-card-subtitle>
+        </mat-card-header>
+        <img
+          mat-card-image
+          src="https://img.freepik.com/free-vector/dairy-farm-label-logo-with-dairy-cow-cartoon_1308-103020.jpg?w=2000"
+          alt="Photo of a Doctor "
+        />
+
+        <mat-card-actions>
+          <button
+            routerLink="client-list"
+            mat-raised-button
+            color="primary"
+            style="margin-top: 10%; margin-left: 35%"
+            (click)="getDistrubutionPage()"
+            
+          >
+            Click
+      
+          </button>
+        </mat-card-actions>
+      </mat-card>
+
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Add New Customer</mat-card-title>
+          <mat-card-subtitle>To add customer</mat-card-subtitle>
+        </mat-card-header>
+        <img
+          mat-card-image
+          src="https://img.freepik.com/free-vector/dairy-farm-label-logo-with-dairy-cow-cartoon_1308-103020.jpg?w=2000"
+          alt="Photo of a Doctor"
+        />
+
+        <mat-card-actions>
+          <button
+            routerLink="customer-form"
+            mat-raised-button
+            color="primary"
+            style="margin-top: 10%; margin-left: 35%"
+            (click)="getCustomerPage()"
+          >
+            Click
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</body>

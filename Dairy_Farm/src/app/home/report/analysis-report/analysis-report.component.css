@@ -1,0 +1,6 @@
+.chartContainer{
+    width: 50%; /* Adjust the width as needed */
+    height: 30%;
+    justify-content: space-around;
+    margin-left: 20%;
+  }

@@ -1,0 +1,89 @@
+
+
+  /* customer-list.component.css */
+
+/* Style the table */
+body{
+  background-color: #9fffc48b;
+}
+
+
+table {
+  width: 80%;
+  border-collapse: collapse;
+  margin: 20px ;
+  margin-left: 20px;
+  background-color: #8ddcf7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style table headers */
+th {
+  background-color: #539eef;
+  color: #251686;
+  padding: 10px;
+  text-align: left;
+}
+
+/* Style table cells */
+td {
+  padding: 10px;
+  border-bottom: 1px solid #5e4343;
+  color: #04174f;
+}
+
+/* Add hover effect on rows */
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.example-container {
+  width: 100vw;
+  height: 100vh;
+
+}
+
+.profile_name {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 10px;
+  color: black;
+}
+
+.profile {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: left;
+}
+
+mat-drawer-content {
+  padding: 12px;
+  width: 100vw;
+}
+
+.toolbar_btn {
+  border: 1px solid white !important;
+}
+
+.toolbar{
+  color: rgb(9, 8, 8);
+  background-color: #1b95ed;
+  height:10vh;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .profile_name {
+      font-size: 12px;
+  }
+}

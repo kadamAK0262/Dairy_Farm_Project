@@ -1,0 +1,277 @@
+<mat-toolbar class="toolbar">
+  <mat-icon> filter_vintage </mat-icon>
+  <span style="margin-left: 1%"><b> Dairy Farm </b></span>
+  <span class="example-spacer"></span>
+  <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+    </button> -->
+
+  <mat-icon> local_florist </mat-icon>
+  <span class="profile_name dropdown-toggle"> Daily Sales </span>
+  <!-- <button mat-stroked-button class="toolbar_btn">
+        Sign-Out
+        </button> -->
+</mat-toolbar>
+
+<div class="maindiv">
+  <div class="container">
+    <div class="header">
+      <div class="mat-mdc-form-field" style="margin-top: 1%">
+        <input
+          matInput
+          (keyup)="applyFilter($event)"
+          placeholder="Ex. ium"
+          #input
+        />
+      </div>
+    </div>
+
+    <div>
+      <div class="patient_info">
+        <b> Client List : </b>
+      </div>
+
+      <div class="mat-elevation-z8 table_div">
+        <div class="table-responsive">
+          <table mat-table [dataSource]="dataSource" class="tablecss">
+            <!-- Position Column -->
+            <ng-container matColumnDef="position">
+              <th mat-header-cell *matHeaderCellDef>No.</th>
+              <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef>Full Name</th>
+              <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="weight">
+              <th mat-header-cell *matHeaderCellDef>Contact No.</th>
+              <td mat-cell *matCellDef="let element">{{ element.contact }}</td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="symbol">
+              <th mat-header-cell *matHeaderCellDef>Address</th>
+              <td mat-cell *matCellDef="let element">{{ element.address }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef>Actions</th>
+              <td mat-cell *matCellDef="let element">
+                <button
+                  class="btnn"
+                  mat-raised-button
+                  color="primary"
+                  (click)="openDialog()"
+                >
+                  Edit
+                </button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+        </div>
+
+        <mat-paginator
+          [pageSizeOptions]="[5, 10, 20]"
+          showFirstLastButtons
+          aria-label="Select page of periodic elements"
+          class="tablecss"
+        >
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Customer Information Form</title>
+    
+  </head>
+  <body>
+    <div class="container">
+      <h1>Customer Information Form</h1>
+      <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+        <label for="costumerName">Customer Name:</label>
+        <input type="text" id="costumerName" formControlName="costumerName" [(ngModel)]="customer.customerName"  />
+        <div
+          *ngIf="
+            customerForm.get('costumerName')?.hasError('required') &&
+            customerForm.get('costumerName')?.touched
+          "
+        >
+          Customer Name is required.
+        </div>
+
+        <label for="delivered">Delivered:</label>
+        <input type="text" id="delivered" formControlName="delivered" [(ngModel)]="customer.delivered"  />
+        <div
+          *ngIf="
+            customerForm.get('delivered')?.hasError('required') &&
+            customerForm.get('delivered')?.touched
+          "
+        >
+        delivered is required.
+        </div>
+
+        <label for="Date">Date:</label>
+        <input type="text" id="Date" formControlName="Date" [(ngModel)]="customer.checkDate"  />
+        <div
+          *ngIf="
+            customerForm.get('date')?.hasError('required') &&
+            customerForm.get('date')?.touched
+          "
+        >
+          Date is required.
+        </div>
+
+        <label for="contactNo">Customer contact no:</label>
+        <input type="text" id="contactNo" formControlName="contactNo" [(ngModel)]="customer.contactNo"  />
+        <div
+          *ngIf="
+            customerForm.get('contactNo')?.hasError('required') &&
+            customerForm.get('contactNo')?.touched
+          "
+        >
+          Customer No is required.
+        </div>
+
+        <label for="email">Contact email:</label>
+        <input type="text" id="email" formControlName="email" [(ngModel)]="customer.emailId"/>
+        <div
+          *ngIf="
+            customerForm.get('email')?.hasError('required') &&
+            customerForm.get('email')?.touched
+          "
+        >
+        email is required
+        </div>
+        <label for="rate">rate:</label>
+        <input type="text" id="rate" formControlName="rate" [(ngModel)]="customer.rate"/>
+        <div
+          *ngIf="
+            customerForm.get('rate')?.hasError('required') &&
+            customerForm.get('rate')?.touched
+          "
+        >
+         Rate is required.
+        </div>
+        
+
+        <label for="idOfSociety">id OF Society</label>
+        <input type="text" id="idOfSociety" formControlName="idOfSociety" [(ngModel)]="customer.idOfSociety"/>
+        <div
+          *ngIf="
+            customerForm.get('idOfSociety')?.hasError('required') &&
+            customerForm.get('idOfSociety')?.touched
+          "
+        >
+          Invalid  societyId format.
+        </div>
+
+        <label for="bill">Bill:</label>
+        <input type="text" id="bill" formControlName="bill" [(ngModel)]="customer.bill"/>
+       <div
+          *ngIf="
+            customerForm.get('bill')?.hasError('required') &&
+            customerForm.get('bill')?.touched
+          "
+        >
+          Invalid email address format.
+        </div>
+
+        <label for="address">Address:</label>
+        <textarea
+          id="address"
+          formControlName="address"
+          rows="4"
+          cols="50"
+          [(ngModel)]="customer.address"
+        ></textarea>
+        <div
+          *ngIf="
+            customerForm.get('address')?.hasError('address') &&
+            customerForm.get('address')?.touched
+          "
+        >
+          Invalid address format.
+        </div>
+
+        <label for="milkType">Milk Type:</label>
+        <select id="milkType" formControlName="milkType" [(ngModel)]="customer.milkType">
+          <option value="Regular">Cow</option>
+          <option value="Skimmed">buffalo</option>
+          
+        </select>
+        <div
+          *ngIf="
+            customerForm.get('milkType')?.hasError('required') &&
+            customerForm.get('milkType')?.touched
+          "
+        >
+          milkType is required.
+        </div>
+
+        <label for="quantity">Quantity (liters):</label>
+        <input type="text" id="quantity" formControlName="quantity" [(ngModel)]="customer.quantity"/>
+        <div
+          *ngIf="
+            customerForm.get('quantity')?.hasError('required') &&
+            customerForm.get('quantity')?.touched
+          "
+        >
+          Quantity is required.
+        </div>
+
+        <label for="outStandingBill">out standing bill</label>
+        <input type="text" id="outStandingBill" formControlName="outStandingBill" [(ngModel)]="customer.outStandingBill"/>
+
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit" 
+         
+        >
+          Submit
+        </button>
+      </form>
+
+      <div *ngIf="success">
+        <p>Form submitted successfully!</p>
+      </div>
+      <div *ngIf="!success && submitted">
+        <p>Form submission failed. Please check the details and try again.</p>
+      </div>
+    </div>
+  </body>
+</html> -->
+
+

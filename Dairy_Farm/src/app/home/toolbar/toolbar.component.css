@@ -1,0 +1,49 @@
+    .example-spacer {
+        flex: 1 1 auto;
+    }
+
+    .example-container {
+        width: 100vw;
+        height: 100vh;
+
+    }
+
+    .profile_name {
+        font-size: 15px;
+        font-weight: 600;
+        margin: 10px;
+        color: black;
+    }
+
+    .profile {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+    }
+
+    .flex-container {
+        display: flex;
+        justify-content: left;
+    }
+
+    mat-drawer-content {
+        padding: 12px;
+        width: 100vw;
+    }
+
+    .toolbar_btn {
+        border: 1px solid white !important;
+    }
+
+    .toolbar{
+        color: rgb(9, 8, 8);
+        background-color: #1b95ed;
+        height:10vh;
+    }
+
+
+    @media only screen and (max-width: 768px) {
+        .profile_name {
+            font-size: 12px;
+        }
+    }

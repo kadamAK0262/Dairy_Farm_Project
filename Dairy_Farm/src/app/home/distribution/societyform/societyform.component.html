@@ -1,0 +1,192 @@
+<!-- <div class="milk-form">
+    <h2>Milk Billing Form</h2>
+    <form (ngSubmit)="submitForm()" #milkForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          [(ngModel)]="formData.name"
+          required
+          #name="ngModel"
+        />
+        <div
+          class="error-message"
+          *ngIf="name.invalid && (name.dirty || name.touched)"
+        >
+          Name is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="flatNo">Flat No:</label>
+        <input
+          type="text"
+          id="flatNo"
+          name="flatNo"
+          [(ngModel)]="formData.flatNo"
+          required
+          #flatNo="ngModel"
+        />
+        <div
+          class="error-message"
+          *ngIf="flatNo.invalid && (flatNo.dirty || flatNo.touched)"
+        >
+          Flat No is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="date">Date:</label>
+        <input
+          type="date"
+          id="date"
+          name="date"
+          [(ngModel)]="formData.date"
+          required
+          #date="ngModel"
+        />
+        <div
+          class="error-message"
+          *ngIf="date.invalid && (date.dirty || date.touched)"
+        >
+          Date is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="milkType">Milk Type:</label>
+        <select
+          id="milkType"
+          name="milkType"
+          [(ngModel)]="formData.milkType"
+          required
+          #milkType="ngModel"
+        >
+          <option value="Regular">Regular</option>
+          <option value="Skimmed">Skimmed</option>
+          <option value="Soy">Soy</option>
+        </select>
+        <div
+          class="error-message"
+          *ngIf="milkType.invalid && (milkType.dirty || milkType.touched)"
+        >
+          Milk Type is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="quantity">Quantity (in liters):</label>
+        <input
+          type="number"
+          id="quantity"
+          name="quantity"
+          [(ngModel)]="formData.quantity"
+          required
+          #quantity="ngModel"
+        />
+        <div
+          class="error-message"
+          *ngIf="quantity.invalid && (quantity.dirty || quantity.touched)"
+        >
+          Quantity is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="rate">Rate (per liter):</label>
+        <input
+          type="number"
+          id="rate"
+          name="rate"
+          [(ngModel)]="formData.rate"
+          required
+          #rate="ngModel"
+        />
+        <div
+          class="error-message"
+          *ngIf="rate.invalid && (rate.dirty || rate.touched)"
+        >
+          Rate is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="outstandingBill">Outstanding Bill:</label>
+        <input
+          type="number"
+          id="outstandingBill"
+          name="outstandingBill"
+          [(ngModel)]="formData.outstandingBill"
+          required
+          #outstandingBill="ngModel"
+        />
+        <div
+          class="error-message"
+          *ngIf="outstandingBill.invalid && (outstandingBill.dirty || outstandingBill.touched)"
+        >
+          Outstanding Bill is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="bill">Bill:</label>
+        <input
+          type="number"
+          id="bill"
+          name="bill"
+          [(ngModel)]="formData.bill"
+          required
+          #bill="ngModel"
+        />
+        <div
+          class="error-message"
+          *ngIf="bill.invalid && (bill.dirty || bill.touched)"
+        >
+          Bill is required.
+        </div>
+      </div>
+  
+      <button type="submit" class="submit-button" [disabled]="milkForm.invalid">
+        Submit
+      </button>
+    </form>
+  </div>   -->
+
+  <!-- <div class="maindiv"> -->
+
+  <div class="container">
+    <h2>Society Management</h2>
+    <form [formGroup]="societyForm" (ngSubmit)="onSubmit()">
+      
+  
+      <div class="form-group">
+        <label for="societyId">Society ID:</label>
+        <input type="text" id="societyId" formControlName="societyId" required    [(ngModel)]="society.societyId"/>
+        <div *ngIf="societyForm.get('societyId')?.hasError('required') && societyForm.get('societyId')?.touched">
+          Society ID is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="societyName">Society Name:</label>
+        <input type="text" id="societyName" formControlName="societyName" required    [(ngModel)]="society.societyName"/>
+        <div *ngIf="societyForm.get('societyName')?.hasError('required') && societyForm.get('societyName')?.touched">
+          Society Name is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="totalActiveCustomers">Active Customers Count:</label>
+        <input type="number" id="totalActiveCustomers" formControlName="totalActiveCustomers" required   [(ngModel)]="society.totalActiveCustomers"/>
+        <div *ngIf="societyForm.get('totalActiveCustomers')?.hasError('required') && societyForm.get('totalActiveCustomers')?.touched">
+          Active Customers Count is required.
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary" mat-raised-button color="primary" [disabled]="societyForm.invalid">Submit</button>
+    </form>
+  </div>
+  <!-- </div> -->
+  

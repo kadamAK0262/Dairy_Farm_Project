@@ -1,0 +1,95 @@
+<body>
+  
+<mat-toolbar class="toolbar">
+  <mat-icon> filter_vintage </mat-icon>
+<span style="margin-left: 1%;"><b> Dairy Farm </b></span>
+<span class="example-spacer"></span>
+<!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+  </button> -->
+
+  <mat-icon> local_florist </mat-icon>
+<span class="profile_name dropdown-toggle"><b>Sales.. </b>  </span>
+<!-- <button mat-stroked-button class="toolbar_btn">
+      Sign-Out
+      </button> -->
+</mat-toolbar>
+
+<div class="mainsales">
+  <!-- <img src="path/to/your/logo.png" alt="Logo" class="logo"> -->
+<h1 class="contain_of_button"> Get Sales Report</h1>
+<div class="contain_of_button">
+  <div class="animals">
+<button (click)="getCow()" [class.clicked]="cow"> Cow
+    
+</button>
+<button (click)="getBuffalo()" [class.clicked]="buffalo"> Buffalo</button>
+</div>
+</div>
+<div class="contain_of_button" *ngIf="cow || buffalo" >
+    <button (click)="getSalesDataForCow() " [class.clicked]="monthlyButtonClicked">Monthly</button>
+    <button (click)="getSalesDataQuarterly()" [class.clicked]="quarterlyButtonClicked">yearly</button>
+
+</div>
+
+
+
+  
+<div *ngIf="data" class="container">
+    <h2>Monthly sales</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Month of year</th>
+          <th>No of Data</th> 
+          <th>total bill of month</th>
+          <th>totall quantity of month </th>
+          <!-- <th>Milk Type</th>
+          <th>Quantity (liters)</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of salescowdata ">
+          <td>{{ data.monthOfYear }}</td>
+          <td>{{ data.numberOfData }}</td>
+          <td>{{ data.totalBillMonth }}</td>
+          <td>{{ data.totalQuantityMonth }}</td>
+        
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div *ngIf="quaterlyData" class="container">
+    <h2>quarterly sales</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th> Quarterly year </th>
+          <th>No of Data</th>
+          <th>total bill of quarter </th>
+          <th>totall quantity of quarter</th>
+          <!-- <th>Milk Type</th>
+          <th>Quantity (liters)</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of salesQuaterlyData ">
+          <td>{{ data.monthOfYear }}</td>
+          <td>{{ data.numberOfData }}</td>
+          <td>{{ data.totalBillMonth }}</td>
+          <td>{{ data.totalQuantityMonth }}</td>
+        
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+  
+</body>
+  
+  
+  
+   

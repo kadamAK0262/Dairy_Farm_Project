@@ -1,0 +1,201 @@
+/* .milk-form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  select,
+  input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .submit-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  
+   */
+
+   /* .milk-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  select,
+  input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .error-message {
+    color: #d9534f;
+    margin-top: 5px;
+    font-size: 14px;
+  }
+  
+  .submit-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+   */
+
+
+
+
+   body {
+    
+   }
+   .maindiv{
+     /* background-image: url('https://indiastockphoto.com/wp-content/uploads/2023/02/Indian-farmer-grazing-his-cattle-at-sunset-550x367.jpg?v=1680019919');  */
+     /* background-size: cover;
+     background-position: center;
+     background-attachment: fixed;
+     font-family: Arial, sans-serif;
+     opacity: 0.9; 
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh; */
+   }
+ 
+ 
+ 
+ 
+    .container {
+     background-color: #87e8e3;
+     padding: 20px;
+     border-radius: 5px;
+     width: 500px;
+     margin: 0 auto;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+     /* margin-top: 10vh;  */
+   }
+   
+   h2 {
+     text-align: center;
+   }
+   
+   .form-group {
+     margin-bottom: 15px;
+     margin-right: 20px;
+   }
+   
+   label {
+     display: block;
+     font-weight: bold;
+   }
+   
+   input[type="text"],
+   input[type="number"] {
+     width: 100%;
+     padding: 10px;
+     border: 1px solid #ccc;
+     border-radius: 3px;
+   }
+   
+   input[type="submit"] {
+     background-color: #007bff;
+     color: #fff;
+     padding: 10px 20px;
+     border: none;
+     border-radius: 3px;
+     cursor: pointer;
+   }
+   
+   input[type="submit"]:hover {
+     background-color: #0056b3;
+   }
+   
+   div[aria-live="polite"] {
+     color: red;
+     font-weight: bold;
+     margin-top: -10px;
+   }
+
+
+
+   select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  /* Style the option elements */
+  select option {
+    width: 100%;
+    background-color: #fff; /* Background color */
+    color: #333; /* Text color */
+    padding: 10px;
+    padding: 10px 20px;
+     border: none;
+     border-radius: 3px;
+     cursor: pointer;
+  }
+
+  /* Style the selected option */
+  select option:checked {
+    background-color: #007bff; /* Background color for the selected option */
+    color: #fff; /* Text color for the selected option */
+  }
+   
+  

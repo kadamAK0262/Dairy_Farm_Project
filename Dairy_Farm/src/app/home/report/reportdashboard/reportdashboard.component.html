@@ -1,0 +1,64 @@
+<!-- card-page.component.html -->
+
+<mat-toolbar class="toolbar">
+    <mat-icon> filter_vintage </mat-icon>
+    <span style="margin-left: 1%"><b> Dairy Farm </b></span>
+    <span class="example-spacer"></span>
+    <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+          <mat-icon>favorite</mat-icon>
+      </button> -->
+  
+    <mat-icon> local_florist </mat-icon>
+    <span class="profile_name dropdown-toggle">Reports</span>
+    <!-- <button mat-stroked-button class="toolbar_btn">
+          Sign-Out
+          </button> -->
+  </mat-toolbar>
+  
+  <div class="allCards">
+    <div class="card-container">
+      <div class="card">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTahXshZuRaPwhyqb4w6ILOflrzuPL3wTOVKcUmi1-m&s"
+          alt="Card Image 1"
+        />
+        <div class="card-content">
+          <h2>Report/Analysis</h2>
+          <button>Button 1</button>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTahXshZuRaPwhyqb4w6ILOflrzuPL3wTOVKcUmi1-m&s"
+          alt="Card Image 2"
+        />
+        <div class="card-content">
+          <h2>Sales Report</h2>
+          <button (click)="getSalesPage()" >Sales Report</button>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTahXshZuRaPwhyqb4w6ILOflrzuPL3wTOVKcUmi1-m&s"
+          alt="Card Image 3"
+        />
+        <div class="card-content">
+          <h2>Purchase Report</h2>
+          <button routerLink="/powerbi-report">Open Power BI Report</button>
+
+          <button>Button 3</button>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTahXshZuRaPwhyqb4w6ILOflrzuPL3wTOVKcUmi1-m&s"
+          alt="Card Image 4"
+        />
+        <div class="card-content">
+          <h2>Customer Details</h2>
+          <button (click)="goToCustomerDetailsTable()">Button 4</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

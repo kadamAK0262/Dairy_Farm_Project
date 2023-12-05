@@ -1,0 +1,260 @@
+/* .example-spacer {
+    flex: 1 1 auto;
+}
+
+.toolbar_btn {
+    border: 1px solid black !important;
+    margin-right: 20px;
+}
+
+.mat-tab {
+    color: rgb(253, 251, 251);
+}
+mat-toolbar{
+    background-color: #77b3ee;
+    height:10vh;
+    position: sticky !important;
+}
+.tabs:hover {
+    color: #30d27e ;
+}
+
+
+
+
+
+.full-width{
+    width: 350px;
+}
+
+
+  .ng-tns-c71-4{
+    color: black;
+  }
+  #mat-mdc-hint-11{
+    color: black;
+  }
+  #mat-mdc-error-1{
+    color: black;
+  }
+
+
+  .example-button-row {
+    
+    max-width: 600px;
+    margin-left: 300px;
+    font-size: 50px;
+    size: 500px;
+  }
+
+  .example-container mat-form-field + mat-form-field {
+    margin-left: 30px;
+  }
+
+  .ng-tns-c71-4[_ngcontent-gmx-c100] {
+    color: #535768;
+}
+
+  
+
+  .example-container mat-form-field + mat-form-field {
+    margin-left: 8px;
+  }
+  
+  .example-right-align {
+    text-align: right;
+  }
+  
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.example-right-align {
+    -moz-appearance: textfield;
+  }
+   */
+
+
+
+
+
+
+   /* .signup-container {
+    background-image: url('https://img.freepik.com/free-photo/cows-green-field_335224-509.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .signup-form {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+  } */
+
+
+
+
+
+
+
+
+  /* .signup-container {
+    background-image: url('https://img.freepik.com/free-photo/cows-green-field_335224-509.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .signup-form {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    margin-right: 10%;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .is-invalid {
+    border-color: #dc3545;
+  }
+  
+  .invalid-feedback {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 4px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+  } */
+
+
+
+
+  /* Styling for the signup container */
+.signup-container {
+  background-image: url('https://img.freepik.com/free-photo/cows-green-field_335224-509.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Styling for the signup form */
+.signup-form {
+  background-color: rgb(23, 190, 236); /* Add a slight transparency to the form background */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Styling for the form heading */
+.signup-form h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Styling for form fields and labels */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #2bd0dc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+/* Styling for invalid input fields */
+.is-invalid {
+  border-color: #dc3545;
+}
+
+/* Styling for error messages */
+.invalid-feedback {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* Styling for the submit button */
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 12px 20px; /* Slightly increase padding for better button appearance */
+  cursor: pointer;
+  font-size: 18px; /* Increase font size for better readability */
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+  
+  
+  /* Add this at the end of signup.component.css */
+
+@media screen and (max-width: 768px) {
+  .signup-form {
+    max-width: 90%;
+  }
+}
+
+  

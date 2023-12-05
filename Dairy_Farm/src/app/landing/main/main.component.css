@@ -1,0 +1,326 @@
+.ak{
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('https://www.greenbiz.com/sites/default/files/images/articles/featured/cowsolharohulyasstock.png') ;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    opacity: 9;
+    background-position: center;
+    height: 100vh;
+    padding-top: 100px; 
+}
+
+.c1div{
+    /* margin-top: 30px;
+    margin-left: 28%;
+    margin-right: 0px;
+    background-color: rgba(237, 237, 237, 0);
+    border-radius: 10%;
+    padding-top:40px ; */
+
+    margin-top: 30px;
+  text-align: center; /* Center content horizontally */
+  background-color: rgba(237, 237, 237, 0); /* Adjust opacity */
+  border-radius: 10px;
+  padding: 20px;
+    
+}
+.c1div span{
+    /* color: azure;
+    font-size: 1.5rem;
+    margin-left: 13px; */
+
+    color: azure;
+  font-size: 1.5rem;
+    
+}
+.heading{
+    /* color: #ffffff;
+    margin-left: 35%;
+    margin-right: 30px;
+    margin-top: 100px;
+    font-style: inherit;  
+    font-size: x-large;
+    border-radius: 10px;
+    width: 36%;
+    line-height: 1.3;   */
+
+    color: #ffffff;
+  text-align: center; /* Center content horizontally */
+  margin-top: 20px; /* Adjust margin as needed */
+  font-size: 24px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+h1{
+    /* padding-top: 100px;
+    font-size: 250%;
+    font-weight: bold;   */
+
+    font-size: 250%;
+  font-weight: bold;
+  word-spacing: 2%;
+}
+
+@media (max-width: 767px) {
+    .ak {
+      padding-top: 20px; 
+    }
+  
+    .heading {
+      font-size: 20px;
+      margin-top: 10px; 
+    }
+  
+    .c1div {
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 0;
+    }
+
+    .heading h1 {
+        font-size: 180%; /* Adjust font size for the heading */
+        font-weight: bold; /* Ensure font weight is maintained */
+      }
+      
+  }
+
+/* @media(max-width:767px){
+    .ak{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .c1div{
+        display: flex;
+        flex-wrap: wrap;
+
+        margin-top: auto;
+        margin-left: auto;
+        margin-right: auto;
+        
+        padding-top:auto ;
+
+        float: left;
+
+    }
+} */
+
+
+
+
+
+
+
+
+
+/* Converted from SCSS */
+
+/* .carousel {
+  position: relative;
+}
+
+.carousel.pointer-event {
+  touch-action: pan-y;
+}
+
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-item {
+  position: relative;
+  display: none;
+  float: left;
+  width: 100%;
+  margin-right: -100%;
+  backface-visibility: hidden;
+}
+
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev {
+  display: block;
+} */
+
+/* Remaining CSS code... (Omitted for brevity) */
+
+
+
+
+
+/* Remaining CSS code... (Omitted for brevity) */
+.carousel {
+  position: relative;
+}
+
+.carousel.pointer-event {
+  touch-action: pan-y;
+}
+
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-item {
+  position: relative;
+  display: none;
+  float: left;
+  width: 100%;
+  margin-right: -100%;
+  backface-visibility: hidden;
+  transition: transform 0.6s ease-in-out;
+}
+
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev {
+  display: block;
+}
+
+/* rtl:begin:ignore */
+.carousel-item-next:not(.carousel-item-start),
+.active.carousel-item-end {
+  transform: translateX(100%);
+}
+
+.carousel-item-prev:not(.carousel-item-end),
+.active.carousel-item-start {
+  transform: translateX(-100%);
+}
+/* rtl:end:ignore */
+
+.carousel-fade .carousel-item {
+  opacity: 0;
+  transition-property: opacity;
+  transform: none;
+}
+
+.carousel-fade .carousel-item.active,
+.carousel-fade .carousel-item-next.carousel-item-start,
+.carousel-fade .carousel-item-prev.carousel-item-end {
+  z-index: 1;
+  opacity: 1;
+}
+
+.carousel-fade .active.carousel-item-start,
+.carousel-fade .active.carousel-item-end {
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0s 0.6s;
+}
+
+/* Left/right controls for nav */
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15%;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  background: none;
+  border: 0;
+  opacity: 0.5;
+  transition: opacity 0.15s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-prev:focus,
+.carousel-control-next:hover,
+.carousel-control-next:focus {
+  color: #fff;
+  text-decoration: none;
+  outline: 0;
+  opacity: 0.9;
+}
+
+.carousel-control-prev {
+  left: 0;
+  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+}
+
+.carousel-control-next {
+  right: 0;
+  background-image: linear-gradient(270deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 100% 100%;
+}
+
+/* Optional indicator pips/controls */
+.carousel-indicators {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 15;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin-right: 15%;
+  margin-left: 15%;
+  list-style: none;
+}
+
+.carousel-indicators [data-bs-target] {
+  box-sizing: content-box;
+  flex: 0 1 auto;
+  width: 30px;
+  height: 3px;
+  margin-right: 3px;
+  margin-left: 3px;
+  text-indent: -999px;
+  cursor: pointer;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0;
+  opacity: 0.5;
+  transition: opacity 0.6s ease;
+}
+
+.carousel-indicators .active {
+  opacity: 1;
+}
+
+/* Optional captions */
+.carousel-caption {
+  position: absolute;
+  right: 15%;
+  bottom: 20px;
+  left: 15%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+/* Dark mode carousel */
+.carousel-dark .carousel-control-prev-icon,
+.carousel-dark .carousel-control-next-icon {
+  filter: invert(1) grayscale(100);
+}
+
+.carousel-dark .carousel-indicators [data-bs-target] {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.carousel-dark .carousel-caption {
+  color: rgba(255, 255, 255, 0.85);
+}
