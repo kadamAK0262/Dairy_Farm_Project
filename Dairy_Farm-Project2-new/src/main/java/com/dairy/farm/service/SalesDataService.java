@@ -1,5 +1,6 @@
 package com.dairy.farm.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,29 @@ public class SalesDataService {
         });
     }
     
+    
+    
+    public List<SalesDataDto> getDailyDataForSale(String milkType) {
+        String sql = "SELECT DATE(check_date) as date_of_month, " +
+                     "COUNT(*) as Nos_of_data, " +
+                     "SUM(quantity) AS total_quantity_day, " +
+                     "SUM(bill) AS total_bill_day " +
+                     "FROM dairy_farm.daliy_customer " +
+                     "WHERE delivered='yes' AND milk_type=? " +
+                     "AND DATE(check_date) = ? " +  // Add this line to filter by today's date
+                     "GROUP BY date_of_month";
+
+        return jdbcTemplate.query(sql, new Object[]{milkType, LocalDate.now()}, (rs, rowNum) -> {
+            SalesDataDto dailyData = new SalesDataDto();
+            dailyData.setMonthOfYear(rs.getString("date_of_month"));
+            dailyData.setNumberOfData(rs.getLong("Nos_of_data"));
+            dailyData.setTotalQuantityMonth(rs.getDouble("total_quantity_day"));
+            dailyData.setTotalBillMonth(rs.getDouble("total_bill_day"));
+            return dailyData;
+        });
+    }
+    
+    
 //    public List<SalesDataDto> getMonthlyDataForBuffalo() {
 //        String sql = "SELECT MONTHNAME(check_date) as month_of_year, " +
 //                     "COUNT(*) as Nos_of_data, " +
@@ -70,4 +94,5 @@ public class SalesDataService {
 //            return monthlyData;
 //        });
 //    }
+    
 }

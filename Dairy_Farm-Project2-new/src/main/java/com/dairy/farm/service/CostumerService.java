@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.dairy.farm.model.Costumer;
+import com.dairy.farm.model.DaliyCustomer;
 import com.dairy.farm.model.Societies;
 import com.dairy.farm.repository.CostumerRepo;
 import com.dairy.farm.repository.SocietyRepo;
@@ -91,6 +92,8 @@ public class CostumerService {
 	        customer.setAddress(updatedCustomer.getAddress());
 	        customer.setMilkType(updatedCustomer.getMilkType());
 	        customer.setQuantity(updatedCustomer.getQuantity());
+	        customer.setStatus(updatedCustomer.getStatus());
+	        customer.setTiming(updatedCustomer.getTiming());
 	        long newSocietyId = updatedCustomer.getIdOfSociety(); // Get the new society ID
 	        customer.setIdOfSociety(newSocietyId);
 
@@ -130,7 +133,27 @@ public class CostumerService {
 	        societyRepo.save(society);
 	    }
 	}
+	
+	public List<Costumer> getActiveDailyCustomersBySociety(int societyId) {
+	    return repo.findByIdOfSocietyAndStatus(societyId, "Active");
+	}
 
+	public List<Costumer> getInactiveDailyCustomersBySociety(int societyId) {
+	    return repo.findByIdOfSocietyAndStatus(societyId, "Inactive");
+	}
+	
+	
+	
+	public List<Costumer> getEveningCustomersBySociety(int societyId) {
+	    return repo.findByIdOfSocietyAndTiming(societyId, "Evening");
+	}
+
+	public List<Costumer> getMorningCustomersBySociety(int societyId) {
+	    return repo.findByIdOfSocietyAndTiming(societyId, "Morning");
+	}
+	
+	
+}
 	
 	
 	
@@ -242,4 +265,4 @@ public class CostumerService {
 //        repo.save(costumer);
 //    }
 
-}
+

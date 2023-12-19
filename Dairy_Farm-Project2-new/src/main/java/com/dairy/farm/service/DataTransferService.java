@@ -49,7 +49,7 @@ public class DataTransferService {
             dailyCustomer.setMilkType(customer.getMilkType());
             dailyCustomer.setQuantity(customer.getQuantity());
             dailyCustomer.setRate(customer.getRate());
-            dailyCustomer.setOutStandingBill(customer.getOutStandingBill());
+//            dailyCustomer.setOutStandingBill(customer.getOutStandingBill());
             dailyCustomer.setBill(customer.getBill());
             dailyCustomer.setIdOfSociety(customer.getIdOfSociety());
             dailyCustomer.setDelivered(customer.getDelivered());
@@ -71,7 +71,7 @@ public class DataTransferService {
             previousDateData.setMilkType(dailyCustomer.getMilkType());
             previousDateData.setQuantity(dailyCustomer.getQuantity());
             previousDateData.setRate(dailyCustomer.getRate());
-            previousDateData.setOutStandingBill(dailyCustomer.getOutStandingBill());
+//            previousDateData.setOutStandingBill(dailyCustomer.getOutStandingBill());
             previousDateData.setBill(dailyCustomer.getBill());
             previousDateData.setIdOfSociety(dailyCustomer.getIdOfSociety());
             previousDateData.setDelivered(dailyCustomer.getDelivered());

@@ -16,7 +16,6 @@ public class SocietyService {
 	@Autowired
 	private SocietyRepo societyRepo;
 	
-	
 	public Societies addSociety(Societies society) {
 		return societyRepo.save(society);
 	}
@@ -24,22 +23,6 @@ public class SocietyService {
 	public List<Societies> getSociety(){
 		return societyRepo.findAll();
 	}
-	
-	
-//	public ResponseEntity<Societies> updateSociety(long id, Societies society){
-//		Optional<Societies> newSociety = societyRepo.findById(id);
-//		if(newSociety.isPresent()){
-//			Societies mySociety = newSociety.get();
-//			mySociety.setSocietyName(mySociety.getSocietyName());
-//			mySociety.setSocietyId(mySociety.getSocietyId());
-//			mySociety.setTotalActiveCustomers(mySociety.getTotalActiveCustomers());
-//			
-//			return ResponseEntity.ok(societyRepo.save(mySociety));
-//		}
-//		else {
-//			return ResponseEntity.notFound().build();
-//		}
-//	}
 	
 	public Societies updateSociety(Societies society, long id) {
 		Societies societies = societyRepo.findById(id).get();
@@ -59,6 +42,7 @@ public class SocietyService {
 		       
 		
 	}
+}
 	
 //	public void incrementTotalActiveCustomers(Long societyId) {
 //        Societies society = societyRepo.findBySocietyId(societyId);
@@ -74,4 +58,19 @@ public class SocietyService {
 	
 	
 	
-}
+//	public ResponseEntity<Societies> updateSociety(long id, Societies society){
+//		Optional<Societies> newSociety = societyRepo.findById(id);
+//		if(newSociety.isPresent()){
+//			Societies mySociety = newSociety.get();
+//			mySociety.setSocietyName(mySociety.getSocietyName());
+//			mySociety.setSocietyId(mySociety.getSocietyId());
+//			mySociety.setTotalActiveCustomers(mySociety.getTotalActiveCustomers());
+//			
+//			return ResponseEntity.ok(societyRepo.save(mySociety));
+//		}
+//		else {
+//			return ResponseEntity.notFound().build();
+//		}
+//	}
+	
+

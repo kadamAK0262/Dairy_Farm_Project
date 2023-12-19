@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dairy.farm.model.Costumer;
+import com.dairy.farm.model.DaliyCustomer;
 import com.dairy.farm.service.CostumerService;
 
 
@@ -57,13 +58,35 @@ public class CostumerController {
 //	    	
 	}
 
-	
 	@PutMapping("/update/{id}")
 	public ResponseEntity<Costumer> updateCustomer(@PathVariable int id, @RequestBody Costumer updatedCustomer) {
 		return serve.updateCustomer(id, updatedCustomer);
 
 	}
+	
+	
+	@GetMapping("/active/{societyId}")
+    public List<Costumer> getActiveDailyCustomers(@PathVariable int societyId) {
+        return serve.getActiveDailyCustomersBySociety(societyId);
+    }
 
+    @GetMapping("/inactive/{societyId}")
+    public List<Costumer> getInactiveDailyCustomers(@PathVariable int societyId) {
+        return serve.getInactiveDailyCustomersBySociety(societyId);
+    }
+    
+    @GetMapping("/evening/{societyId}")
+    public List<Costumer> getEveningCustomers(@PathVariable int societyId) {
+        return serve.getEveningCustomersBySociety(societyId);
+    }
+
+    @GetMapping("/morning/{societyId}")
+    public List<Costumer> getMorningCustomers(@PathVariable int societyId) {
+        return serve.getMorningCustomersBySociety(societyId);
+    }
+    
+	
+}
 	
 	
 	
@@ -99,4 +122,4 @@ public class CostumerController {
 //        serve.assignSocietyToCustomer(customerId, societyId);
 //        return ResponseEntity.ok("Society assigned to customer successfully.");
 //    }
-}
+

@@ -29,6 +29,14 @@ public class SalesController {
 	        return salesDataService.getQuarterlyDataForSale(milkType);
 	    }
 	 
+	 
+	 @GetMapping("/cow/daily/{milkType}")
+	    public List<SalesDataDto> getDailyDataForCow(@PathVariable(name = "milkType") String milkType) {
+	        return salesDataService.getDailyDataForSale(milkType);
+	    }
+	 
+	 
+	 
 //	 @GetMapping("/buffalo")
 //	    public List<SalesDataDto> getMonthlyDataForBuffalo() {
 //	        return salesDataService.getMonthlyDataForBuffalo();

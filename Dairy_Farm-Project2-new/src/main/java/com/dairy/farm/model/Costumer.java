@@ -46,7 +46,9 @@ public class Costumer {
 	
 	private int rate;
 	
-	private int outStandingBill;
+//	private int outStandingBill;
+	private String status;
+	private String timing;
 	
 	private int bill;
 
@@ -60,6 +62,7 @@ public class Costumer {
 	public int getBill() {
         return (int) (rate * quantity);
     }
+}
 	
 //	@Column( insertable = false, updatable = false)
 	
@@ -144,4 +147,4 @@ public class Costumer {
 //    @ManyToOne(fetch = FetchType.LAZY) // Many customers belong to one society
 //    @JoinColumn(name = "societyId")
 //    private Societies society;
-}
+

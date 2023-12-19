@@ -28,6 +28,9 @@ public class DaliyCustomer {
 	private long quantity;
 	private int rate;
 	private int outStandingBill;
+	private String status;
+	private String timing;
+	
 	private int bill;
 	private String emailId;
 	private long contactNo;

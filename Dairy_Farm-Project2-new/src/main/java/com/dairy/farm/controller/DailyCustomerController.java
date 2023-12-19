@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import com.dairy.farm.service.DailyCustomerService;
 
 @RestController
 @RequestMapping("/dailyCustomers")
+@CrossOrigin(origins="*")
 public class DailyCustomerController {
 	
 	@Autowired
@@ -78,8 +80,10 @@ public class DailyCustomerController {
     String delivered=dc.getDelivered();
     String milkType=dc.getMilkType();
     long quantity=dc.getQuantity();
+    String status =dc.getStatus();
+    String timing = dc.getTiming();
     	
-    	dailyCustomerService.updateCustomerByDateAndId(id,checkDate, delivered, milkType, quantity);
+    	dailyCustomerService.updateCustomerByDateAndId(id,checkDate, delivered, milkType, quantity, status, timing);
     }
     
     
@@ -88,4 +92,17 @@ public class DailyCustomerController {
     	int newid=Integer.parseInt(id);
     	return dailyCustomerService.getHistoryOfCustomer(newid);
     }
+    
+    
+    @GetMapping("/active/{societyId}")
+    public List<DaliyCustomer> getActiveDailyCustomers(@PathVariable int societyId) {
+        return dailyCustomerService.getActiveDailyCustomersBySociety(societyId);
+    }
+
+    @GetMapping("/inactive/{societyId}")
+    public List<DaliyCustomer> getInactiveDailyCustomers(@PathVariable int societyId) {
+        return dailyCustomerService.getInactiveDailyCustomersBySociety(societyId);
+    }
+    
+    
 }
