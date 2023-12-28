@@ -18,10 +18,6 @@ import com.dairy.farm.model.Costumer;
 import com.dairy.farm.model.DaliyCustomer;
 import com.dairy.farm.service.CostumerService;
 
-
-
-
-
 @RestController
 @RequestMapping("/api")
 public class CostumerController {
@@ -46,16 +42,9 @@ public class CostumerController {
 	}
 
 	@GetMapping("/customersBySocietyId/{idOfSociey}")
-//	    public ResponseEntity<List<Costumer>> getCustomersBySocietyId (@PathVariable long idOfSociey){
 	public List<Costumer> getCustomersSocietyId(@PathVariable long idOfSociey) {
 		List<Costumer> customers = serve.getCustomerBySocietyId(idOfSociey);
-
-//	    	if(customers.isEmpty()) { 
-//	    		return null;
-//	    	}
-//	    	else {
-		return (customers);
-//	    	
+		return (customers);    	
 	}
 
 	@PutMapping("/update/{id}")

@@ -20,4 +20,7 @@ public interface CostumerRepo extends JpaRepository<Costumer, Integer> {
 	
 	List<Costumer> findByIdOfSocietyAndTiming(long idOfSociety, String timing);
 
+	void save(DaliyCustomer dailyCustomer);
+
+
 }

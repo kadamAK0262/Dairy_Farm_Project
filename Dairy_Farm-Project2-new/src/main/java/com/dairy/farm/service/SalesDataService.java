@@ -21,7 +21,7 @@ public class SalesDataService {
                      "SUM(quantity) AS total_quantity_month, " +
                      "SUM(bill) AS total_bill_month " +
                      "FROM dairy_farm.daliy_customer " +
-                     "WHERE delivered='yes' AND milk_type=? " +
+                     "WHERE delivered='yes' AND milk_type=? AND status='Active'" +
                      "GROUP BY month_of_year";
 
         return jdbcTemplate.query(sql,new Object[] { milkType }, (rs, rowNum) -> {
@@ -40,7 +40,7 @@ public class SalesDataService {
                      "SUM(quantity) AS total_quantity_quarter, " +
                      "SUM(bill) AS total_bill_quarter " +
                      "FROM dairy_farm.daliy_customer " +
-                     "WHERE delivered='yes' AND milk_type=? " +
+                     "WHERE delivered='yes' AND milk_type=? AND status='Active' " +
                      "GROUP BY quarter_OF";
 
         return jdbcTemplate.query(sql, new Object[]{milkType}, (rs, rowNum) -> {
@@ -62,7 +62,7 @@ public class SalesDataService {
                      "SUM(bill) AS total_bill_day " +
                      "FROM dairy_farm.daliy_customer " +
                      "WHERE delivered='yes' AND milk_type=? " +
-                     "AND DATE(check_date) = ? " +  // Add this line to filter by today's date
+                     "AND DATE(check_date) = ? AND status='Active'" +  // Add this line to filter by today's date
                      "GROUP BY date_of_month";
 
         return jdbcTemplate.query(sql, new Object[]{milkType, LocalDate.now()}, (rs, rowNum) -> {

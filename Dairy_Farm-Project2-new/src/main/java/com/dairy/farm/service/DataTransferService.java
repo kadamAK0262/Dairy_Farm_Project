@@ -29,19 +29,18 @@ public class DataTransferService {
 	@Autowired
 	private CostumerRepo customerRepo;	
 	
-	@Scheduled(cron = "0 0 0 * * ?") 
+	@Scheduled(cron = "0 5 0 * * ?") 
     @Transactional
     public void transferData() {
-        // Get the current date and previous date
-		
+        // Get the current date and previous date	
 		System.out.println("Transfer data method is running at: " + LocalDateTime.now());
 		
         LocalDate currentDate = LocalDate.now();
-        LocalDate previousDate = currentDate.minusDays(1);
-
-        // Transfer data from Customer to DailyCustomer for the current date
-        List<Costumer> customersForCurrentDate = customerRepo.findByCheckDate(currentDate);
-        for (Costumer customer : customersForCurrentDate) {
+        
+List<Costumer> customers = customerRepo.findAll();
+        
+        for (Costumer customer : customers) {
+        	
             DaliyCustomer dailyCustomer = new DaliyCustomer();
             // Copy data from Customer to DailyCustomer
             dailyCustomer.setCustomerName(customer.getCustomerName());
@@ -49,39 +48,53 @@ public class DataTransferService {
             dailyCustomer.setMilkType(customer.getMilkType());
             dailyCustomer.setQuantity(customer.getQuantity());
             dailyCustomer.setRate(customer.getRate());
-//            dailyCustomer.setOutStandingBill(customer.getOutStandingBill());
             dailyCustomer.setBill(customer.getBill());
             dailyCustomer.setIdOfSociety(customer.getIdOfSociety());
             dailyCustomer.setDelivered(customer.getDelivered());
             dailyCustomer.setCheckDate(currentDate);
-            // Save to DailyCustomer
+            dailyCustomer.setStatus(customer.getStatus());
+            dailyCustomer.setTiming(customer.getTiming());
+            dailyCustomer.setEmailId(customer.getEmailId());
             
             
             dailyCustomerRepo.save(dailyCustomer);
         }
 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         // Transfer data from DailyCustomer to PreviousDateData for the previous date
-        List<DaliyCustomer> dailyCustomersForPreviousDate = dailyCustomerRepo.findByCheckDate(previousDate);
-        for (DaliyCustomer dailyCustomer : dailyCustomersForPreviousDate) {
-        	
-            PreviousDateData previousDateData = new PreviousDateData();
-            // Copy data from DailyCustomer to PreviousDateData
-            previousDateData.setCustomerName(dailyCustomer.getCustomerName());
-            previousDateData.setAddress(dailyCustomer.getAddress());
-            previousDateData.setMilkType(dailyCustomer.getMilkType());
-            previousDateData.setQuantity(dailyCustomer.getQuantity());
-            previousDateData.setRate(dailyCustomer.getRate());
-//            previousDateData.setOutStandingBill(dailyCustomer.getOutStandingBill());
-            previousDateData.setBill(dailyCustomer.getBill());
-            previousDateData.setIdOfSociety(dailyCustomer.getIdOfSociety());
-            previousDateData.setDelivered(dailyCustomer.getDelivered());
-            previousDateData.setCheckDate(previousDate);
-            // Save to PreviousDateData
-            previousDateDataRepo.save(previousDateData);
-        }
+//        List<DaliyCustomer> dailyCustomersForPreviousDate = dailyCustomerRepo.findByCheckDate(previousDate);
+//        for (DaliyCustomer dailyCustomer : dailyCustomersForPreviousDate) {
+//        	
+//            PreviousDateData previousDateData = new PreviousDateData();
+//            // Copy data from DailyCustomer to PreviousDateData
+//            previousD			ateData.setCustomerName(dailyCustomer.getCustomerName());
+//            previousDateData.setAddress(dailyCustomer.getAddress());
+//            previousDateData.setMilkType(dailyCustomer.getMilkType());
+//            previousDateData.setQuantity(dailyCustomer.getQuantity());
+//            previousDateData.setRate(dailyCustomer.getRate());
+////            previousDateData.setOutStandingBill(dailyCustomer.getOutStandingBill());
+//            previousDateData.setBill(dailyCustomer.getBill());
+//            previousDateData.setIdOfSociety(dailyCustomer.getIdOfSociety());
+//            previousDateData.setDelivered(dailyCustomer.getDelivered());
+//            previousDateData.setCheckDate(previousDate);
+//            // Save to PreviousDateData
+//            previousDateDataRepo.save(previousDateData);
+//        }
 
         // Delete data from DailyCustomer for the previous date
-        dailyCustomerRepo.deleteByCheckDate(previousDate);
+//        dailyCust	omerRepo.deleteByCheckDate(previousDate);
     }
 	
 

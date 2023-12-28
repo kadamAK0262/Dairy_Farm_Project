@@ -35,10 +35,5 @@ public class SalesController {
 	        return salesDataService.getDailyDataForSale(milkType);
 	    }
 	 
-	 
-	 
-//	 @GetMapping("/buffalo")
-//	    public List<SalesDataDto> getMonthlyDataForBuffalo() {
-//	        return salesDataService.getMonthlyDataForBuffalo();
-//	    }
+	
 }

@@ -32,7 +32,6 @@ public class SignUpController {
 	    if (loginResult) {
 	        return true;
 	    } else {
-//	        return ResponseEntity.badRequest().body("Login failed. Check your email and password.");
 	    	return false;
 	    }
 	}
