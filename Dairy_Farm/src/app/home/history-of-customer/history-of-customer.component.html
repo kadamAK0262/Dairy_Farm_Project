@@ -1,73 +1,164 @@
-
 <body>
-  
-
   <mat-toolbar class="toolbar">
     <mat-icon> filter_vintage </mat-icon>
-  <span style="margin-left: 1%;"><b> Dairy Farm </b></span>
-  <span class="example-spacer"></span>
+    <span style="margin-left: 1%"><b> Dairy Farm </b></span>
+    <span class="example-spacer"></span>
 
     <mat-icon> local_florist </mat-icon>
-  <span class="profile_name dropdown-toggle">History of Customer</span>
-</mat-toolbar>
+    <span class="profile_name dropdown-toggle">History of Customer</span>
+  </mat-toolbar>
 
-
-  <div class="table-container"  >
+  <div class="table-container">
     <mat-dialog-content style="overflow: hidden">
-      <table mat-table [dataSource]="historylist" class="mat-elevation-z8">
+      <table mat-table [dataSource]="historylist" class="mat-elevation-z8" matSort>
         <!-- Position Column -->
         <ng-container matColumnDef="id" class="table-row">
-          <th style="background-color: rgb(7, 141, 250);" mat-header-cell *matHeaderCellDef>Customer Id</th>
-          <td style="background-color:blanchedalmond;" mat-cell *matCellDef="let element">{{ element.id }}</td>
+          <th
+            style="background-color: rgb(7, 141, 250)"
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+          >
+            Customer Id
+          </th>
+          <td
+            style="background-color: blanchedalmond"
+            mat-cell
+            *matCellDef="let element"
+          >
+            {{ element.id }}
+          </td>
         </ng-container>
-    
+
         <ng-container matColumnDef="address" class="table-row">
-          <th style="background-color: rgb(7, 141, 250);" mat-header-cell *matHeaderCellDef>address</th>
-          <td style="background-color:blanchedalmond;" mat-cell *matCellDef="let element">
+          <th
+            style="background-color: rgb(7, 141, 250)"
+            mat-header-cell
+            *matHeaderCellDef
+          >
+            address
+          </th>
+          <td
+            style="background-color: blanchedalmond"
+            mat-cell
+            *matCellDef="let element"
+          >
             {{ element.address }}
           </td>
         </ng-container>
-    
+
         <ng-container matColumnDef="bill" class="table-row">
-          <th style="background-color: rgb(7, 141, 250);" mat-header-cell *matHeaderCellDef>bill</th>
-          <td style="background-color:blanchedalmond;" mat-cell *matCellDef="let element">{{ element.bill }}</td>
+          <th
+            style="background-color: rgb(7, 141, 250)"
+            mat-header-cell
+            *matHeaderCellDef
+          >
+            bill
+          </th>
+          <td
+            style="background-color: blanchedalmond"
+            mat-cell
+            *matCellDef="let element"
+          >
+            {{ element.bill }}
+          </td>
         </ng-container>
-    
+
         <ng-container matColumnDef="checkDate" class="table-row">
-          <th style="background-color: rgb(7, 141, 250);" mat-header-cell *matHeaderCellDef>checkDate</th>
-          <td style="background-color:blanchedalmond;" mat-cell *matCellDef="let element">
+          <th
+            style="background-color: rgb(7, 141, 250)"
+            mat-header-cell
+            *matHeaderCellDef
+          >
+            checkDate
+          </th>
+          <td
+            style="background-color: blanchedalmond"
+            mat-cell
+            *matCellDef="let element"
+          >
             {{ element.checkDate }}
           </td>
         </ng-container>
-  
+
         <ng-container matColumnDef="contactNo" class="table-row">
-          <th style="background-color: rgb(7, 141, 250);" mat-header-cell *matHeaderCellDef>contactNo</th>
-          <td style="background-color:blanchedalmond;" mat-cell *matCellDef="let element">
+          <th
+            style="background-color: rgb(7, 141, 250)"
+            mat-header-cell
+            *matHeaderCellDef
+          >
+            contactNo
+          </th>
+          <td
+            style="background-color: blanchedalmond"
+            mat-cell
+            *matCellDef="let element"
+          >
             {{ element.contactNo }}
           </td>
         </ng-container>
         <ng-container matColumnDef="customerName" class="table-row">
-          <th style="background-color: rgb(7, 141, 250);" mat-header-cell *matHeaderCellDef>customerName</th>
-          <td style="background-color:blanchedalmond;" mat-cell *matCellDef="let element">
+          <th
+            style="background-color: rgb(7, 141, 250)"
+            mat-header-cell
+            *matHeaderCellDef
+          >
+            customerName
+          </th>
+          <td
+            style="background-color: blanchedalmond"
+            mat-cell
+            *matCellDef="let element"
+          >
             {{ element.customerName }}
           </td>
         </ng-container>
         <ng-container matColumnDef="delivered" class="table-row">
-          <th style="background-color: rgb(7, 141, 250);" mat-header-cell *matHeaderCellDef>delivered</th>
-          <td style="background-color:blanchedalmond;" mat-cell *matCellDef="let element">
+          <th
+            style="background-color: rgb(7, 141, 250)"
+            mat-header-cell
+            *matHeaderCellDef
+          >
+            delivered
+          </th>
+          <td
+            style="background-color: blanchedalmond"
+            mat-cell
+            *matCellDef="let element"
+          >
             {{ element.delivered }}
           </td>
         </ng-container>
         <ng-container matColumnDef="emailId" class="table-row">
-          <th style="background-color: rgb(7, 141, 250);" mat-header-cell *matHeaderCellDef>emailId</th>
-          <td style="background-color:blanchedalmond;" mat-cell *matCellDef="let element">
+          <th
+            style="background-color: rgb(7, 141, 250)"
+            mat-header-cell
+            *matHeaderCellDef
+          >
+            emailId
+          </th>
+          <td
+            style="background-color: blanchedalmond"
+            mat-cell
+            *matCellDef="let element"
+          >
             {{ element.emailId }}
           </td>
         </ng-container>
-  
+
         <ng-container matColumnDef="idOfSociety" class="table-row">
-          <th style="background-color: rgb(7, 141, 250);" mat-header-cell *matHeaderCellDef>idOfSociety</th>
-          <td style="background-color:blanchedalmond;" mat-cell *matCellDef="let element">
+          <th
+            style="background-color: rgb(7, 141, 250)"
+            mat-header-cell
+            *matHeaderCellDef
+          >
+            idOfSociety
+          </th>
+          <td
+            style="background-color: blanchedalmond"
+            mat-cell
+            *matCellDef="let element"
+          >
             {{ element.idOfSociety }}
           </td>
         </ng-container>
@@ -83,22 +174,69 @@
           </td>
         </ng-container> -->
         <ng-container matColumnDef="milkType" class="table-row">
-          <th style="background-color: rgb(7, 141, 250);" mat-header-cell *matHeaderCellDef>milkType</th>
-          <td style="background-color:blanchedalmond;" mat-cell *matCellDef="let element">
+          <th
+            style="background-color: rgb(7, 141, 250)"
+            mat-header-cell
+            *matHeaderCellDef
+          >
+            milkType
+          </th>
+          <td
+            style="background-color: blanchedalmond"
+            mat-cell
+            *matCellDef="let element"
+          >
             {{ element.milkType }}
           </td>
         </ng-container>
-  
-        <ng-container matColumnDef="outStandingBill" class="table-row">
-          <th style="background-color: rgb(7, 141, 250);" mat-header-cell *matHeaderCellDef>outStandingBill</th>
-          <td style="background-color:blanchedalmond;" mat-cell *matCellDef="let element">
-            {{ element.outStandingBill }}
+
+        <ng-container matColumnDef="status" class="table-row">
+          <th
+            style="background-color: rgb(7, 141, 250)"
+            mat-header-cell
+            *matHeaderCellDef
+          >
+            status
+          </th>
+          <td
+            style="background-color: blanchedalmond"
+            mat-cell
+            *matCellDef="let element"
+          >
+            {{ element.status }}
           </td>
         </ng-container>
-  
+
+        <ng-container matColumnDef="timing" class="table-row">
+          <th
+            style="background-color: rgb(7, 141, 250)"
+            mat-header-cell
+            *matHeaderCellDef
+          >
+            timing
+          </th>
+          <td
+            style="background-color: blanchedalmond"
+            mat-cell
+            *matCellDef="let element"
+          >
+            {{ element.timing }}
+          </td>
+        </ng-container>
+
         <ng-container matColumnDef="quantity" class="table-row">
-          <th style="background-color: rgb(7, 141, 250);" mat-header-cell *matHeaderCellDef>quantity</th>
-          <td style="background-color:blanchedalmond;" mat-cell *matCellDef="let element">
+          <th
+            style="background-color: rgb(7, 141, 250)"
+            mat-header-cell
+            *matHeaderCellDef
+          >
+            quantity
+          </th>
+          <td
+            style="background-color: blanchedalmond"
+            mat-cell
+            *matCellDef="let element"
+          >
             {{ element.quantity }}
           </td>
         </ng-container>
@@ -112,27 +250,36 @@
           <div *ngIf="!element.updatedStatus "><mat-icon style="color: red;">highlight_off</mat-icon></div>
           </td>
         </ng-container> -->
-  
+
         <ng-container matColumnDef="rate" class="table-row">
-          <th style="background-color: rgb(7, 141, 250);" mat-header-cell *matHeaderCellDef>rate</th>
-          <td style="background-color:blanchedalmond;" mat-cell *matCellDef="let element">
+          <th
+            style="background-color: rgb(7, 141, 250)"
+            mat-header-cell
+            *matHeaderCellDef
+          >
+            rate
+          </th>
+          <td
+            style="background-color: blanchedalmond"
+            mat-cell
+            *matCellDef="let element"
+          >
             {{ element.rate }}
           </td>
         </ng-container>
-        
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr
           mat-row
           *matRowDef="let row; columns: displayedColumns"
           class="table-row"
         ></tr>
-        
       </table>
-    </mat-dialog-content> 
-   </div>
-  
-  </body>
-  
-  
-  
-   
+    </mat-dialog-content>
+    <mat-paginator
+  [pageSizeOptions]="[5, 10, 20]"
+  showFirstLastButtons
+  (page)="onPageChange($event)"
+></mat-paginator>
+  </div>
+</body>

@@ -1,88 +1,145 @@
 <mat-toolbar class="toolbar">
   <mat-icon> filter_vintage </mat-icon>
-<span style="margin-left: 1%;"><b> Dairy Farm </b></span>
-<span class="example-spacer"></span>
+  <span style="margin-left: 1%"><b> Dairy Farm </b></span>
+  <span class="example-spacer"></span>
 
   <mat-icon> local_florist </mat-icon>
-<span class="profile_name dropdown-toggle">Daily Distribution</span>
+  <span class="profile_name dropdown-toggle">Daily Distribution</span>
 </mat-toolbar>
 
 <body>
-
-<div class="maindiv">
-<div >
-  <button style="margin: 20px;" mat-raised-button color="primary" (click)="addSociety()">Add Society</button>
-</div>
-
-
-
-<mat-dialog-content style="overflow: hidden">
-  <table mat-table [dataSource]="Societydata" class="mat-elevation-z8">
-    <!-- Position Column -->
-    <ng-container matColumnDef="id" class="table-row">
-      <th style="background-color: rgb(17, 148, 248);" mat-header-cell *matHeaderCellDef>Id</th>
-      <td style="background-color: rgb(196, 233, 253);" mat-cell *matCellDef="let element">{{ element.id }}</td>
-    </ng-container>
-
-    <!-- Drug Name Column -->
-    <ng-container matColumnDef="societyName" class="table-row">
-      <th style="background-color: rgb(17, 148, 248);" mat-header-cell *matHeaderCellDef>Society Name</th>
-      <td style="background-color: rgb(196, 233, 253);" mat-cell *matCellDef="let element">
-        {{ element.societyName }}
-      </td>
-    </ng-container>
-
-    <!-- Dosage -->
-    <ng-container matColumnDef="societyId" class="table-row">
-      <th style="background-color: rgb(17, 148, 248);" mat-header-cell *matHeaderCellDef>SocietyId</th>
-      <td style="background-color: rgb(196, 233, 253);" mat-cell *matCellDef="let element">{{ element.societyId }}</td>
-    </ng-container>
-
-    <!-- Notes -->
-    <ng-container matColumnDef="totalActiveCustomers" class="table-row">
-      <th style="background-color: rgb(17, 148, 248);" mat-header-cell *matHeaderCellDef>Total Active Customer</th>
-      <td style="background-color: rgb(196, 233, 253);" mat-cell *matCellDef="let element">
-        {{ element.totalActiveCustomers }}
-      </td>
-    </ng-container>
-
-      <!-- Action -->
-  <ng-container matColumnDef="action" class="table-row">
-    <th style="background-color: rgb(17, 148, 248);" mat-header-cell *matHeaderCellDef class="thead">Action</th>
-    <td style="background-color: rgb(196, 233, 253);" mat-cell *matCellDef="let element" class="btn-table-row">
+  <div class="maindiv">
+    <div>
       <button
-        mat-stroked-button
-        color="accent"
-        class="btn1"
-        (click)="deletesociety(element.id)"
-      >
-        delete
-      </button>
-      <button
-        mat-stroked-button
+        style="margin: 20px"
+        mat-raised-button
         color="primary"
-        class="btn2"
-        (click)="getSocietId(element.societyId)"
-
+        (click)="addSociety()"
       >
-        click here
-        
+        Add Society
       </button>
-    </td>
-  </ng-container>
+    </div>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr
-      mat-row
-      *matRowDef="let row; columns: displayedColumns"
-      class="table-row"
-    ></tr>
-    
-  </table>
-  <!-- <mat-paginator
+    <mat-dialog-content style="overflow: hidden">
+      <table mat-table [dataSource]="Societydata" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="id" class="table-row">
+          <th
+            style="background-color: rgb(17, 148, 248)"
+            mat-header-cell
+            *matHeaderCellDef
+          >
+            Id
+          </th>
+          <td
+            style="background-color: rgb(196, 233, 253)"
+            mat-cell
+            *matCellDef="let element"
+          >
+            {{ element.id }}
+          </td>
+        </ng-container>
+
+        <!-- Drug Name Column -->
+        <ng-container matColumnDef="societyName" class="table-row">
+          <th
+            style="background-color: rgb(17, 148, 248)"
+            mat-header-cell
+            *matHeaderCellDef
+          >
+            Society Name
+          </th>
+          <td
+            style="background-color: rgb(196, 233, 253)"
+            mat-cell
+            *matCellDef="let element"
+          >
+            {{ element.societyName }}
+          </td>
+        </ng-container>
+
+        <!-- Dosage -->
+        <ng-container matColumnDef="societyId" class="table-row">
+          <th
+            style="background-color: rgb(17, 148, 248)"
+            mat-header-cell
+            *matHeaderCellDef
+          >
+            SocietyId
+          </th>
+          <td
+            style="background-color: rgb(196, 233, 253)"
+            mat-cell
+            *matCellDef="let element"
+          >
+            {{ element.societyId }}
+          </td>
+        </ng-container>
+
+        <!-- Notes -->
+        <ng-container matColumnDef="totalActiveCustomers" class="table-row">
+          <th
+            style="background-color: rgb(17, 148, 248)"
+            mat-header-cell
+            *matHeaderCellDef
+          >
+            Total Active Customer
+          </th>
+          <td
+            style="background-color: rgb(196, 233, 253)"
+            mat-cell
+            *matCellDef="let element"
+          >
+            {{ element.totalActiveCustomers }}
+          </td>
+        </ng-container>
+
+        <!-- Action -->
+        <ng-container matColumnDef="action" class="table-row">
+          <th
+            style="background-color: rgb(17, 148, 248)"
+            mat-header-cell
+            *matHeaderCellDef
+            class="thead"
+          >
+            Action
+          </th>
+          <td
+            style="background-color: rgb(196, 233, 253)"
+            mat-cell
+            *matCellDef="let element"
+            class="btn-table-row"
+          >
+            <button
+              mat-stroked-button
+              color="accent"
+              class="btn1"
+              (click)="openConfirmationDialog(element.id)"
+            >
+              delete
+            </button>
+            <button
+              mat-stroked-button
+              color="primary"
+              class="btn2"
+              (click)="getSocietId(element.societyId)"
+            >
+              click here
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          class="table-row"
+        ></tr>
+      </table>
+      <!-- <mat-paginator
     [pageSizeOptions]="[5, 10, 15]"
     showFirstLastButtons
   ></mat-paginator> -->
-</mat-dialog-content>
-</div>
+    </mat-dialog-content>
+  </div>
 </body>

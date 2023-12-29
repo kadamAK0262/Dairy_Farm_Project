@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { MatSort } from '@angular/material/sort';
 import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
@@ -6,7 +7,10 @@ import { CustomerService } from 'src/app/services/customer.service';
   templateUrl: './history-of-customer.component.html',
   styleUrls: ['./history-of-customer.component.css']
 })
-export class HistoryOfCustomerComponent {
+export class HistoryOfCustomerComponent implements AfterViewInit{
+
+  @ViewChild(MatSort)
+  sort!: MatSort;
 
   constructor(private customerservice:CustomerService){
     this.getCustomerhistory();
@@ -23,7 +27,8 @@ export class HistoryOfCustomerComponent {
   'emailId',
   'idOfSociety',
   'milkType',
-      'outStandingBill',
+      'status',
+      'timing',
    'quantity',
   'rate'
  
@@ -51,4 +56,16 @@ export class HistoryOfCustomerComponent {
     })
   }
 
+  pageSize = 5; // Set your desired page size
+  pageIndex = 0; // Set the initial page index
+
+  onPageChange(event: any): void {
+    this.pageSize = event.pageSize;
+    this.pageIndex = event.pageIndex;
+  }
+
+  ngAfterViewInit(): void {
+    // Connect the sorting with the data source
+    this.historylist.sort = this.sort;
+  }
 }

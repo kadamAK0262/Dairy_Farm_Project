@@ -18,6 +18,8 @@ import { CustomerdetailsComponent } from './home/report/customerdetails/customer
 import { SalesreportComponent } from './home/report/salesreport/salesreport.component';
 import { PowerBiReportComponent } from './home/report/power-bi-report/power-bi-report.component';
 import { HistoryOfCustomerComponent } from './home/history-of-customer/history-of-customer.component';
+import { UpdateCustomerdetailsComponent } from './home/report/update-customerdetails/update-customerdetails.component';
+import { BillsComponent } from './home/bills/bills.component';
 
 
 const routes: Routes = [
@@ -69,13 +71,20 @@ const routes: Routes = [
     path : 'customerDetails', component :CustomerdetailsComponent
   },
   {
+    path : 'updateCustomer',  component : UpdateCustomerdetailsComponent
+  },
+  {
     path : 'salesReport', component :SalesreportComponent
   },
 
   { path: 'powerbi-report', component: PowerBiReportComponent }
 ,
 
-{ path: 'history', component: HistoryOfCustomerComponent }
+{ path: 'history', component: HistoryOfCustomerComponent },
+
+{
+  path: 'billing/:id', component: BillsComponent
+}
   // {
   //   path : 'dashboard', children:[
   //     {

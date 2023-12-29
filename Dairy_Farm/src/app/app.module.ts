@@ -28,18 +28,18 @@ import { SignupComponent } from './signup/signup.component';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { IndexComponent } from './landing/index/index.component';
 import { DashboardComponent } from './home/dashboard/dashboard.component';
-import { SideNavComponent } from './home/side-nav/side-nav.component';
+
 import { ToolbarComponent } from './home/toolbar/toolbar.component';
 
-import { DailyReportsComponent } from './home/daily-reports/daily-reports.component';
-import { DailySalesComponent } from './home/daily-sales/daily-sales.component';
+
+
 import { MatPaginator } from '@angular/material/paginator';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatDividerModule} from '@angular/material/divider';
-import { DailySalesPopupComponent } from './home/daily-sales-popup/daily-sales-popup.component';
+
 
 
 import { DatePipe, NgIf } from '@angular/common';
@@ -58,18 +58,23 @@ import { ReportdashboardComponent } from './home/report/reportdashboard/reportda
 import { AnalysisReportComponent } from './home/report/analysis-report/analysis-report.component';
 import { SalesreportComponent } from './home/report/salesreport/salesreport.component';
 import { CustomerdetailsComponent } from './home/report/customerdetails/customerdetails.component';
-import { PurchasereportsComponent } from './home/report/purchasereports/purchasereports.component';
+
 
 import { UpdatecustomerPopupComponent } from './home/distribution/updatecustomer-popup/updatecustomer-popup.component';
 import { DeletecustomerPopupComponent } from './home/distribution/deletecustomer-popup/deletecustomer-popup.component';
 import { UpdateSocietyPopupComponent } from './home/distribution/update-society-popup/update-society-popup.component';
-import { DeleteSocietyPopupComponent } from './home/distribution/delete-society-popup/delete-society-popup.component';
+
 import { EditDailyDistributionDetailsComponent } from './home/distribution/edit-daily-distribution-details/edit-daily-distribution-details.component';
 import { PowerBiReportComponent } from './home/report/power-bi-report/power-bi-report.component';
 import { HistoryOfCustomerComponent } from './home/history-of-customer/history-of-customer.component';
 
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { UpdateCustomerdetailsComponent } from './home/report/update-customerdetails/update-customerdetails.component';
+import { BillsComponent } from './home/bills/bills.component';
+import { CdkColumnDef } from '@angular/cdk/table';
+import { DeleteCustomerDialogComponent } from './home/report/delete-customer-dialog/delete-customer-dialog.component';
+import { DeleteSocietyDialogComponent } from './home/distribution/delete-society-dialog/delete-society-dialog.component';
 
 
 @NgModule({
@@ -84,13 +89,11 @@ import {MatNativeDateModule} from '@angular/material/core';
     SignupComponent,
     IndexComponent,
     DashboardComponent,
-    SideNavComponent,
+   
     ToolbarComponent,
  
-    DailyReportsComponent,
-    DailySalesComponent,
     
-    DailySalesPopupComponent,
+    
     CustomerComponent,
     CustomerTableComponent,
     
@@ -101,15 +104,19 @@ import {MatNativeDateModule} from '@angular/material/core';
     AnalysisReportComponent,
     SalesreportComponent,
     CustomerdetailsComponent,
-    PurchasereportsComponent,
+    
  
     UpdatecustomerPopupComponent,
     DeletecustomerPopupComponent,
     UpdateSocietyPopupComponent,
-    DeleteSocietyPopupComponent,
+    
     EditDailyDistributionDetailsComponent,
     PowerBiReportComponent,
     HistoryOfCustomerComponent,
+    UpdateCustomerdetailsComponent,
+    BillsComponent,
+    DeleteCustomerDialogComponent,
+    DeleteSocietyDialogComponent,
     
     
     
@@ -143,7 +150,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     
     
   ],
-  providers: [DatePipe],
+  providers: [DatePipe, CdkColumnDef],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

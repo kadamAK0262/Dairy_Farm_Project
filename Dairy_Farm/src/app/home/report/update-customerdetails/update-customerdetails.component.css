@@ -1,0 +1,98 @@
+/* body {
+    background-image: url("https://www.heritagefoods.in/blog/wp-content/uploads/2021/03/1.jpg");
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    background-attachment: fixed;
+    opacity: 9;
+    margin: 0; 
+  } */
+  
+  /* styles.css */
+  
+  .mainForm {
+    background-color: #6ef396aa;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 10px;
+    padding: 20px;
+    border: 1px solid #270786;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+  h1{
+    color: #1c0952;
+  }
+  mat-form-field {
+    width: 40%;
+    margin-bottom: 5px;
+  }
+  
+  /* button {
+    margin-top: 10px;
+  } */
+  
+  /* Add more styles as needed */
+  
+  
+  
+  
+  /* ************ ToolBar********** */
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .example-container {
+    width: 100vw;
+    height: 100vh;
+  
+  }
+  
+  .profile_name {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 10px;
+    color: black;
+  }
+  
+  .profile {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+  
+  .flex-container {
+    display: flex;
+    justify-content: left;
+  }
+  
+  mat-drawer-content {
+    padding: 12px;
+    width: 100vw;
+  }
+  
+  .toolbar_btn {
+    border: 1px solid white !important;
+  }
+  
+  .toolbar{
+    color: rgb(9, 8, 8);
+    background-color: #1b95ed;
+    height:10vh;
+  }
+  
+  
+  @media only screen and (max-width: 768px) {
+    .profile_name {
+        font-size: 12px;
+    }
+  }
+  
+  
+  
+  

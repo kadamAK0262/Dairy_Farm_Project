@@ -1,10 +1,11 @@
 import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { UpdateSocietyPopupComponent } from '../update-society-popup/update-society-popup.component';
-import { DeleteSocietyPopupComponent } from '../delete-society-popup/delete-society-popup.component';
+
 import { SocietyformComponent } from '../societyform/societyform.component';
 import { SignupService } from 'src/app/services/signup.service';
 import { Router } from '@angular/router';
+import { DeleteSocietyDialogComponent } from '../delete-society-dialog/delete-society-dialog.component';
 
 export interface Society {
   id: number;
@@ -27,23 +28,7 @@ export class SocietyComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSociety();
-    // Initialize or load your form data here
-    // Example:
-    this.societyData = [
-      {
-        id: 1,
-        societyId: 'ABC123',
-        societyName: 'Example Society 1',
-        activeCustomersCount: 50
-      },
-      {
-        id: 2,
-        societyId: 'DEF456',
-        societyName: 'Example Society 2',
-        activeCustomersCount: 30
-      }
-      // Add more data as needed
-    ];
+  
   }
 
   displayedColumns: string[] = [
@@ -59,10 +44,7 @@ export class SocietyComponent implements OnInit {
 
   }
 
-  deleteSociety(){
-    this.MatDialog.open(DeleteSocietyPopupComponent)
-    width:'400px'
-  }
+
 
   addSociety(){
     this.MatDialog.open(SocietyformComponent)
@@ -89,5 +71,22 @@ export class SocietyComponent implements OnInit {
     this.router.navigate(['/customer-table'])
      console.log(SocietyId);
   }
+
+  openConfirmationDialog(societyId: number): void {
+    const dialogRef = this.MatDialog.open(DeleteSocietyDialogComponent, {
+      width: '300px', // Adjust the width as per your design
+      data: { message: 'Are you sure you want to delete this Society?' }
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // User clicked 'Yes,' proceed with deletion
+        this.deletesociety(societyId);
+      } else {
+        // User clicked 'Cancel,' do nothing
+      }
+    });
+  }
+  
 
 }

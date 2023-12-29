@@ -15,14 +15,53 @@ export class updateData{
 export class CustomerService {
 
   private customerUrl = 'http://localhost:8081/api/addCostumer';
-  // private getCustomerurl = 'http://localhost:8081/api/getCostumer';
+
+  private societyUrl = 'http://localhost:8081/api/getSocieties';
+
 
   constructor(private http: HttpClient,private datePipe: DatePipe) {}
 
   customer(userData: any): Observable<any> {
     return this.http.post(this.customerUrl, userData).pipe(
       map((response: any) => {
-        // Assuming the response contains user data
+        return response;
+      }),
+      catchError(this.handleError)
+    );
+  }
+
+
+  
+  getActiveCustomers(societyId: number): Observable<any[]> {
+    return this.http.get<any[]>(`http://localhost:8081/api/active/${societyId}`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  getInactiveCustomers(societyId: number): Observable<any[]> {
+    return this.http.get<any[]>(`http://localhost:8081/api/inactive/${societyId}`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  getEveningCustomers(societyId: number): Observable<any[]> {
+    return this.http.get<any[]>(`http://localhost:8081/api/evening/${societyId}`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  getMorningCustomers(societyId: number): Observable<any[]> {
+    return this.http.get<any[]>(`http://localhost:8081/api/morning/${societyId}`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+
+
+
+  getSocieties(): Observable<any> {
+    return this.http.get(this.societyUrl).pipe(
+      map((response: any) => {
         return response;
       }),
       catchError(this.handleError)
@@ -47,6 +86,21 @@ export class CustomerService {
    deleteCustomerById(id:any){
     return this.http.delete(`http://localhost:8081/api/deleteCustomer/${id}`)
    }
+
+
+   updateCustomerDetails(id: any, customer: any) {
+    return this.http.put(`http://localhost:8081/api/update/${id}`, customer)
+      .pipe(
+        catchError(error => {
+          console.error('Error updating customer details:', error);
+          return throwError(error);
+        })
+      );
+  }
+
+  //  updateCustomerDetails(id : any, customer: any){
+  //   return this.http.put(`http://localhost:8081/api/update/${id}`, customer);
+  //  }
 
 
    // add list of data to daily customer table 
@@ -82,6 +136,8 @@ export class CustomerService {
    const delivered=data.delivered;
    const milkType=data.milkType;
    const quantity=data.quantity;
+   const status=data.status;
+   const timing=data.timing;
     console.log(data,"ccccccccccccc");
     return this.http.put("http://localhost:8081/dailyCustomers/updateData",data)
 
@@ -90,4 +146,18 @@ export class CustomerService {
   historyofcustomer(customerId:any){
     return this.http.get(`http://localhost:8081/dailyCustomers/historyOfCustomer/${customerId}`);
   }
+
+
+
+  // Billing 
+
+  // getBills(id: number, startDate: string, endDate: string): Observable<any> {
+  //   const url = `${this.baseUrl}/getBills/${id}?startDate=${startDate}&endDate=${endDate}`;
+  //   return this.http.get(url);
+  // }
+
+  // getTotalBill(id: number, startDate: string, endDate: string): Observable<any> {\
+  //   const url = `${this.baseUrl}/getTotalBill/${id}?startDate=${startDate}&endDate=${endDate}`;
+  //   return this.http.get(url);
+  // }
 }

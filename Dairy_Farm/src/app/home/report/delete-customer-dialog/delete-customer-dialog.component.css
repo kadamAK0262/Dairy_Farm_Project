@@ -1,0 +1,37 @@
+/* your-component.component.css */
+
+/* Center the dialog content */
+.mat-dialog-content {
+    text-align: center;
+  }
+  
+  /* Style the dialog title */
+  h1.mat-dialog-title {
+    background-color: #e44d26; /* Use your desired background color */
+    color: #fff; /* Set the text color to white */
+    padding: 16px;
+    margin: 0;
+  }
+  
+  /* Style the dialog actions */
+  div.mat-dialog-actions {
+    justify-content: center;
+    margin-top: 16px;
+  }
+  
+  /* Style the Cancel button */
+  button.mat-button {
+    margin-right: 8px;
+  }
+  
+  /* Style the Yes button */
+  button.mat-button[color="accent"] {
+    background-color: #e44d26; /* Use your desired accent color */
+    color: #fff; /* Set the text color to white */
+  }
+  
+  /* Add a hover effect for the Yes button */
+  button.mat-button[color="accent"]:hover {
+    background-color: #c53716; /* Use a slightly different color on hover */
+  }
+  

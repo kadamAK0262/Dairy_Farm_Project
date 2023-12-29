@@ -6,6 +6,7 @@ import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators, FormBui
 import { Component, OnInit } from '@angular/core';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { AbstractControl, ValidatorFn } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface Food {
   value: string;
@@ -24,32 +25,21 @@ export class SignupComponent  {
   // signupForm: FormGroup;
 
   signupForm: FormGroup;
+  hide = true;
   
   userData: any = {};
-  
-
-  // constructor(
-  //   private formBuilder: FormBuilder,
-  //   private SignupService: SignupService 
-  // ) {
-  //   this.signupForm = this.formBuilder.group({
-  //     // Define your form controls here
-  //   });
-  // }
-
-
-
   constructor(
     private formBuilder: FormBuilder,
     private signupService: SignupService,
-    private router : Router
+    private router : Router,
+    private snackBar: MatSnackBar
     
   ) {
     this.signupForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required],
+      password: ['',[Validators.required, Validators.minLength(8), Validators.maxLength(12)]],
+      confirmPassword: ['', [Validators.required]],
     }, { validator: this.passwordMatchValidator });
   }
 
@@ -79,22 +69,23 @@ export class SignupComponent  {
           }
           else{       
             this.submitted = true;
+            this.router.navigate(['/dashboard'])
+      this.snackBar.open('Form submitted successfully!', 'Close', {
+        duration: 3000, // Duration in milliseconds
+        
+      });
           }
         },
         (error) => {
           console.error('Signup failed', error);
         }
       );
-      this.router.navigate(['/index'])
+      
     }
-  }
-  // if(submitted = true){
-  //   this.router.navigate(['/index'])
-  // }
-
-
     
-  hide = true;
+  }
+
+
   email = new FormControl('', [Validators.required, Validators.email]);
 
   getPasswordErrorMessage() {
@@ -123,50 +114,10 @@ export class SignupComponent  {
     if (this.email.hasError('required')) {
       return 'You must enter a value';
     }
-
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
-
-
-  // constructor(private FormBuilder: FormBuilder) { }
-
-  // ngOnInit() {
-  //   this.signupForm = this.FormBuilder.group({
-  //     username: ['', Validators.required],
-  //     email: ['', [Validators.required, Validators.email]],
-  //     password: ['', Validators.required],
-  //     confirmPassword: ['', Validators.required]
-  //   });
+  // getPasswordMessage(){
+  //   if this.
   // }
-
-  // onSubmit() {
-  //   this.submitted = true;
-
-  //   if (this.signupForm.invalid) {
-  //     return;
-  //   }
-
-    
-  // }
-
-
-
-
-
-
-
-  // emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-
-  // matcher = new MyErrorStateMatcher();
-  // hide = true;
-
-  // foods: Food[] = [
-  //   {value: 'male-0', viewValue: 'Male'},
-  //   {value: 'female-1', viewValue: 'Female'},
-  //   {value: 'other-2', viewValue: 'Other'},
-  // ];
-
-  // startDate = new Date(1990, 0, 1);
-
 }

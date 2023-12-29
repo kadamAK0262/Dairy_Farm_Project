@@ -7,6 +7,7 @@ import { UpdatecustomerPopupComponent } from '../distribution/updatecustomer-pop
 import { EditDailyDistributionDetailsComponent } from '../distribution/edit-daily-distribution-details/edit-daily-distribution-details.component';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BillsComponent } from '../bills/bills.component';
 export interface Customer{
   id:any,
   address:any;
@@ -18,7 +19,8 @@ export interface Customer{
   emailId:any;
   idOfSociety:any;
   milkType:any;
-  outStandingBill:any;
+  status:any;
+  timing:any;
   quantity:any;
   rate:any;
   action:any
@@ -30,6 +32,7 @@ export interface Customer{
 })
 export class CustomerTableComponent  {
   [x: string]: any;
+  
 
   customers: any[] = [];
   editForm: FormGroup;
@@ -52,6 +55,8 @@ export class CustomerTableComponent  {
   // 'delivered',
   'emailId',
   'idOfSociety',
+  'status',
+  'timing',
   // 'milkType',
       // 'outStandingBill',
   //  'quantity',
@@ -89,7 +94,7 @@ getDailyCustomerData(){
 )
 }
 
-updatedCustomerList:any;
+updatedCustomerList:any[] = [];
 addToCustomerList(rowData: any) {
   // Add the selected row data to the customerList
   if (!this.updatedCustomerList) {
@@ -146,11 +151,99 @@ addToCustomerList(rowData: any) {
   getCustomrId(customerId:any){
     sessionStorage.setItem("customer_id",customerId);
     this.router.navigate(['/history'])
-
-
   }
 
   
 
+  getMorningData() {
+    const societyId = sessionStorage.getItem('society_id');
+    if (societyId !== null) {
+      const numericSocietyId = +societyId;
+  
+      this.customerService.getMorningCustomers(numericSocietyId).subscribe(
+        (data) => {
+          this.customerList = data;
+        },
+        (error) => {
+          console.error('Error fetching morning data:', error);
+        }
+      );
+    } else {
+      console.error('societyId is null');
+    }
+  }
+  
+  getEveningData() {
+    const societyId = sessionStorage.getItem('society_id');
+    if (societyId !== null) {
+      const numericSocietyId = +societyId;
+  
+      this.customerService.getEveningCustomers(+numericSocietyId).subscribe(
+        (data) => {
+          this.customerList = data;
+        },
+        (error) => {
+          console.error('Error fetching evening data:', error);
+        }
+      );
+    } else {
+      console.error('societyId is null');
+    }
+  }
+  
+
+  getActiveCustomers() {
+    const societyId = sessionStorage.getItem('society_id'); // Assuming you have stored the society ID in session storage
+
+    if (societyId !== null) {
+      // Convert societyId to a number if needed
+      const numericSocietyId = +societyId;
+
+    this.customerService.getActiveCustomers(+numericSocietyId).subscribe(
+      (data) => {
+        this.customerList = data;
+      },
+      (error) => {
+        console.error('Error fetching active customers:', error);
+      }
+    );
+  }
+  else {
+    console.error('societyId is null');
+    // Handle the case where societyId is null, possibly show an error message or provide a default value
+  }
+}
+
+  getInactiveCustomers() {
+    const societyId = sessionStorage.getItem('society_id'); // Assuming you have stored the society ID in session storage
+
+    if (societyId !== null) {
+      // Convert societyId to a number if needed
+      const numericSocietyId = +societyId;
+
+    this.customerService.getInactiveCustomers(+numericSocietyId).subscribe(
+      (data) => {
+        this.customerList = data;
+      },
+      (error) => {
+        console.error('Error fetching inactive customers:', error);
+      }
+    );
+  }  else {
+    console.error('societyId is null');
+    // Handle the case where societyId is null, possibly show an error message or provide a default value
+  }
+}
+
+// openBillingDialog(id: number) {
+//   const dialogRef = this.MatDialog.open(BillsComponent, {
+//     width: '100%',
+//     data: { customerId: id },
+//   });
+// }
+
+openBillingDialog(id: number) {
+  this.router.navigate(['/billing', id]);
+}
  
 }

@@ -1,0 +1,123 @@
+/* customer-list.component.css */
+
+/* Style the entire page background */
+body {
+    background-color: #9df4e2; /* Change this color as needed */
+  }
+  
+  /* Style the container */
+  div {
+    margin: 0px;
+  }
+  
+  /* Style the table */
+  table {
+    width: 90%;
+    /* border-collapse: collapse; */
+    margin-top: 20px;
+    margin-left: 10px;
+    background-color: #2ba1f5; /* Change this color as needed */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  /* Style table headers */
+  th {
+    background-color: #13b0ff; /* Change this color as needed */
+    color: #033376;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  /* Style table cells */
+  td {
+    padding: 12px;
+    border-bottom: 1px solid #95b5bd; 
+    color: #06295b;/* Change this color as needed */
+    background-color: #c4e7ff;
+  }
+  
+  /* Add hover effect on rows */
+  tr:hover {
+    background-color: #e0e0e0; /* Change this color as needed */
+  }
+  
+  /* Style the Save button */
+  button {
+    margin-top: 10px;
+    margin-left: 5px;
+    padding: 10px;
+    background-color: #5ab7fa; /* Change this color as needed */
+    color: #054162f2;
+    border: #06295b;
+    border-radius: 5px;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+  
+  /* Style the mat-dialog-content */
+  mat-dialog-content {
+    overflow: hidden;
+    background-color: #2ae3d7; /* Change this color as needed */
+  }
+  
+  /* Optional: Style the mat-icon */
+  mat-icon {
+    vertical-align: middle;
+  }
+  
+  
+  
+  
+  
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .example-container {
+    width: 100vw;
+    height: 100vh;
+  
+  }
+  
+  .profile_name {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 10px;
+    color: black;
+  }
+  
+  .profile {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+  
+  .flex-container {
+    display: flex;
+    justify-content: left;
+  }
+  
+  mat-drawer-content {
+    padding: 12px;
+    width: 100vw;
+  }
+  
+  .toolbar_btn {
+    border: 1px solid white !important;
+  }
+  
+  .toolbar{
+    color: rgb(9, 8, 8);
+    background-color: #289af7;
+    height:10vh;
+  }
+  
+  
+  @media only screen and (max-width: 768px) {
+    .profile_name {
+        font-size: 12px;
+    }
+  }
+  

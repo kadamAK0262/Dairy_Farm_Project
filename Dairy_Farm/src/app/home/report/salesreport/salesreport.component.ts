@@ -19,6 +19,7 @@ cow=false
 buffalo=false
   monthlyButtonClicked: boolean | undefined;
   quarterlyButtonClicked: boolean | undefined;
+  dailyButtonClicked: boolean | undefined;
 
 constructor(private salesSerice:SalesSericeService){
 
@@ -72,8 +73,17 @@ getSalesDataQuarterly(){
     console.log(this.salesQuaterlyData,"sales quarterly data");
     
   })
+}
 
+getSalesDataDaily() {
+  this.quaterlyData = false;
+  this.data = true;
+  this.monthlyButtonClicked = false;
+  this.quarterlyButtonClicked = false;
 
+  return this.salesSerice.getSalesDataDaily(this.milkType).subscribe((data) => {
+    this.salescowdata = data;
+  });
 }
 
 // salesbuffaloData:any;

@@ -15,9 +15,11 @@ export class Customer{
   emailId:any;
   idOfSociety:any;  
   milkType:any;
-  outStandingBill:any;
+  status:any;
+  timing:any;
   quantity:any;
   rate:any;
+
 }
 
 @Component({
@@ -37,7 +39,7 @@ export class CustomerComponent implements OnInit{
       customerName: ['', Validators.required],
       delivered: ['', Validators.required],
       checkDate: ['', Validators.required],
-      contactNo: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+      contactNo: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
       emailId: ['', [Validators.required, Validators.email]],
       rate: ['', Validators.required],
       idOfSociety: ['', Validators.required],
@@ -45,10 +47,21 @@ export class CustomerComponent implements OnInit{
       address: ['', Validators.required],
       milkType: ['', Validators.required],
       quantity: ['', [Validators.required]],
-      outStandingBill: ['', Validators.required],
+      status: ['', Validators.required],
+      timing: ['', Validators.required]
     });
   }
+
+  societies: any[] = [];
   ngOnInit(): void {
+    this.customerService.getSocieties().subscribe(
+      (response: any) => {
+        this.societies = response; // Assign the response to the societies array
+      },
+      (error: any) => {
+        console.error('Error fetching societies:', error);
+      }
+    )
   }
 
    customer:Customer=new Customer();

@@ -11,6 +11,8 @@ export class Update{
   delivered:any;
   milkType:any;
   quantity:any;
+  status: any;
+  timing: any;
 }
 @Component({
   selector: 'app-edit-daily-distribution-details',
@@ -29,7 +31,9 @@ export class EditDailyDistributionDetailsComponent {
       // id: ['', Validators.required],
       delivered: ['', Validators.required],
       milkType: ['', Validators.required],
-      quantity: ['', Validators.required]
+      quantity: ['', Validators.required],
+      status: [''], // Make sure you have these controls
+  timing: [''],
     });
    
   }
@@ -57,6 +61,10 @@ date:any=sessionStorage.getItem("todays_date");
     console.log("edited data ",this.editedData);
     this.customer_id=sessionStorage.getItem("customer_id");
     this.update.id=this.customer_id;
+
+    this.update.status = this.update.status;
+  this.update.timing = this.update.timing;
+  
     console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",this.update);
     
    console.log("wertytrewqertewrtewrtewrtewrtewrtew",this.customer_id);

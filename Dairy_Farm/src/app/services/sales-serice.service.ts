@@ -16,4 +16,10 @@ export class SalesSericeService {
     return this.http.get(`http://localhost:8081/api/cow/quarterly/${milkType}`)
   }
  
+
+  getSalesDataDaily(milkType: any) {
+    return this.http.get(`http://localhost:8081/api/cow/daily/${milkType}`);
+  }
+
+  
 }

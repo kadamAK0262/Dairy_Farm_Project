@@ -1,36 +1,4 @@
 
-<!-- <h2 mat-dialog-title>Edit Customer</h2>
-<div mat-dialog-content>
-
-  <form> -->
-    <!-- Example: Edit customer name -->
-    <!-- <mat-form-field>
-      <mat-label>delivered</mat-label>
-      <input matInput [(ngModel)]="editedData.delivered" />
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Customer milkType</mat-label>
-        <input matInput [(ngModel)]="editedData.milkType" />
-      </mat-form-field>
-      
-      <mat-form-field>
-        <mat-label>Customer quantity</mat-label>
-        <input matInput [(ngModel)]="editedData.quantity" />
-      </mat-form-field> -->
-
-      <!-- <mat-form-field>
-        <mat-label>Customer Name</mat-label>
-        <input matInput [(ngModel)]="editedData.rate" />
-      </mat-form-field> -->
-
-      
-    <!-- Add other form fields as needed -->
-  <!-- </form>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onSaveClick()">Save</button>
-  <button mat-button (click)="onCancelClick()">Cancel</button>
-</div> -->
 <div class="container">
   <h2>Society Management</h2>
   <form [formGroup]="CustomerForm" (ngSubmit)="onSubmit()">
@@ -74,7 +42,71 @@
       </div> -->
     </div>
 
+    <div class="form-group">
+      <label for="status">Status:</label>
+      <select id="status" formControlName="status" required [(ngModel)]="update.status">
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="timing">Timing:</label>
+      <select id="timing" formControlName="timing" required [(ngModel)]="update.timing">
+        <option value="Morning">Morning</option>
+        <option value="Evening">Evening</option>
+      </select>
+    </div>
+
     <button type="submit" mat-raised-button
     color="primary">Submit</button>
   </form>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+  <h2>Society Management</h2>
+  <form [formGroup]="CustomerForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="societyId">delivered:</label>
+      <select id="societyId" formControlName="delivered" required    [(ngModel)]="update.delivered">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="societyName">Milk type</label>
+      <select id="societyName" formControlName="milkType" required    [(ngModel)]="update.milkType">
+        <option value="cow">Cow</option>
+        <option value="buffalo">buffalo</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="totalActiveCustomers">quantity:</label>
+      <input type="number" id="totalActiveCustomers" formControlName="quantity" required   [(ngModel)]="update.quantity"/>
+      
+    </div>
+
+    <button type="submit" mat-raised-button
+    color="primary">Submit</button>
+  </form>
+</div> -->

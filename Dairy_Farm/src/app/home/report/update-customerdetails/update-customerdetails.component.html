@@ -1,0 +1,162 @@
+
+    <div class="mainForm">
+      <!-- <h1>Customer Information Form</h1> -->
+      <form [formGroup]="customerForm" >
+        <div class="row">
+          <mat-form-field>
+            <mat-label>Customer Name</mat-label>
+            <input matInput formControlName="customerName" />
+            <mat-error *ngIf="hasError('customerName', 'required')"
+              >Customer Name is required</mat-error
+            >
+          </mat-form-field>
+  
+          <mat-form-field>
+            <mat-label>Contact No</mat-label>
+            <input matInput formControlName="contactNo" />
+            <mat-error *ngIf="hasError('contactNo', 'required')"
+              >Contact No is required</mat-error
+            >
+            <mat-error *ngIf="hasError('contactNo', 'pattern')"
+              >Invalid Contact No</mat-error
+            >
+          </mat-form-field>
+        </div>
+  
+        <div class="row">
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="emailId" />
+            <mat-error *ngIf="hasError('emailId', 'required')"
+              >Customer Email is required</mat-error
+            >
+          </mat-form-field>
+  
+          <mat-form-field>
+            <mat-label>Address </mat-label>
+            <input matInput formControlName="address" />
+            <mat-error *ngIf="hasError('address', 'required')"
+              >Customer Address is required</mat-error
+            >
+          </mat-form-field>
+        </div>
+  
+        <div class="row">
+          <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              formControlName="checkDate"
+            />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="hasError('checkDate', 'required')"
+              >Date is required</mat-error
+            >
+          </mat-form-field>
+  
+          <mat-form-field>
+            <mat-label>Rate</mat-label>
+            <input matInput formControlName="rate" />
+            <mat-error *ngIf="hasError('rate', 'required')"
+              >Rate is required</mat-error
+            >
+          </mat-form-field>
+        </div>
+  
+        <div class="row">
+          <mat-form-field>
+            <mat-label>Quantity</mat-label>
+            <input matInput formControlName="quantity" />
+            <mat-error *ngIf="hasError('quantity', 'required')"
+              >Quantity is required</mat-error
+            >
+          </mat-form-field>
+  
+          <mat-form-field>
+            <mat-label>Bill </mat-label>
+            <input matInput formControlName="bill" />
+          </mat-form-field>
+        </div>
+  
+        <div class="row">
+          <!-- <mat-form-field>
+    <mat-label>Id of Society</mat-label>
+    <input matInput formControlName="idOfSociety">
+    <mat-error *ngIf="hasError('idOfSociety', 'required')">idOfSociety is required</mat-error>
+  </mat-form-field> -->
+  
+          <mat-form-field>
+            <mat-label>Select Society</mat-label>
+            <mat-select formControlName="idOfSociety">
+              <mat-option
+                *ngFor="let society of societies"
+                [value]="society.societyId"
+                >{{ society.societyId }}</mat-option
+              >
+            </mat-select>
+            <mat-error *ngIf="hasError('idOfSociety', 'required')"
+              >Society is required</mat-error
+            >
+          </mat-form-field>
+  
+          <mat-form-field>
+            <mat-label>Milk Type</mat-label>
+            <mat-select matInput formControlName="milkType">
+              <mat-option value="cow">cow</mat-option>
+              <mat-option value="buffalo">buffalo</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+  
+        <div class="row">
+          <mat-form-field>
+            <mat-label>Delivered</mat-label>
+            <mat-select matInput formControlName="delivered">
+              <mat-option value="Yes">Yes</mat-option>
+              <mat-option value="No">No</mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <!-- <mat-form-field>
+            <mat-label>outstandingBill</mat-label>
+            <input matInput formControlName="outStandingBill" />
+          </mat-form-field> -->
+          <mat-form-field>
+            <mat-label>Status</mat-label>
+            <mat-select matInput formControlName="status">
+              <mat-option value="Active">Active</mat-option>
+              <mat-option value="Inactive">Inactive</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+  
+        <div class="row">
+          <mat-form-field>
+            <mat-label>Timing</mat-label>
+            <mat-select matInput formControlName="timing">
+              <mat-option value="Morning">Morning</mat-option>
+              <mat-option value="Evening">Evening</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="saveChanges()">Save Changes</button>
+    <button mat-raised-button (click)="closeDialog()">Cancel</button>
+  
+          <!-- <button mat-raised-button color="primary" type="submit">Submit</button> -->
+        </div>
+      </form>
+    </div>
+  
+    <div *ngIf="success">
+      <p>Form submitted successfully!</p>
+    </div>
+    <div *ngIf="!success && submitted">
+      <p>Form submission failed. Please check the details and try again.</p>
+    </div>
+  
+  

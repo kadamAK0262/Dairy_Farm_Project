@@ -21,19 +21,11 @@ export class SocietyformComponent implements OnInit {
   constructor(private fb: FormBuilder,private signupService:SignupService,  private router : Router) {
 
     this.societyForm = this.fb.group({
-      // id: ['', Validators.required],
       societyId: ['', Validators.required],
       societyName: ['', Validators.required],
       totalActiveCustomers: ['', Validators.required]
     });
   }
-
-  // formData: any = {}; // Initialize formData object
-
-  // submitForm() {
-  //   // Handle form submission logic here
-  //   console.log(this.formData); 
-  // }
 
   ngOnInit(): void {
   
@@ -42,29 +34,20 @@ export class SocietyformComponent implements OnInit {
   society:Society=new Society();
   showData:any;
   addSociety(){
-
    this.signupService.addSociety(this.society).subscribe(response=>{
     this.showData=response;
-    console.log("**********************")
+    console.log("**********************");
+    this.router.navigate(['/society']);
    })
   }
   societyForm: FormGroup;
-
- 
-
-
-  onSubmit() {
-    this.addSociety();
+  onSubmit() {  
     if (this.societyForm.valid) {
-      // You can submit the form data here
-      console.log('Form submitted:', this.societyForm.value);
-      
-    this.router.navigate(['/society']);
+      this.addSociety();
+      console.log('Form submitted:', this.societyForm.value);  
+    
     } else {
-      // Handle validation errors
       console.log('Form is invalid. Please check the fields.');
     }
   }
-
-
 }
